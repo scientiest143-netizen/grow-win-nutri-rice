@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GROW-WIN NutriRice | Daily Nutrition System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --white-smoke: #FDFDFD;
+            --pungent-garlic: #EBE6C2;
+            --olive-brass: #C5BD61;
+            --carrot-orange: #FF8A1C;
+            --muted-olive: #8F8A66;
+            --dark-olive: #3B3D2B;
+            --dark-beige: #C2A575;  /* Dark Beige 2165-40 approximate */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white-smoke);
+            color: var(--dark-olive);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-dark-beige { background-color: var(--dark-beige); }
+        .btn-primary {
+            background-color: var(--carrot-orange);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e07a10;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1px solid var(--dark-olive);
+            transition: all 0.2s ease;
+            color: var(--dark-olive);
+        }
+        .btn-outline:hover {
+            background-color: var(--dark-olive);
+            color: white;
+        }
+        /* 3D Tilt Circles (unchanged) */
+        .nutrient-circle {
+            width: 300px;
+            min-height: 300px;
+            border: 1px solid rgba(197, 189, 97, 0.3);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            background: var(--white-smoke);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            will-change: transform;
+            cursor: pointer;
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.05);
+            margin: 0 auto;
+        }
+        .nutrient-circle:hover {
+            border-color: var(--olive-brass);
+            box-shadow: 0 30px 40px -15px rgba(197, 189, 97, 0.35);
+        }
+        .orbit-label {
+            position: absolute;
+            top: -12px;
+            background: var(--carrot-orange);
+            color: white;
+            padding: 4px 16px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 60px;
+            white-space: nowrap;
+            z-index: 2;
+            transform: translateZ(20px);
+        }
+        .benefit-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(2px);
+            border-left: 4px solid var(--carrot-orange);
+            padding: 1rem 1.2rem;
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        .benefit-card:hover {
+            transform: translateX(5px);
+            background: rgba(255,255,255,0.15);
+        }
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            transition: all 0.25s ease;
+            border: 1px solid #eae6db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--olive-brass);
+            box-shadow: 0 20px 25px -12px rgba(197,189,97,0.2);
+        }
+        .pack-card {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .pack-card:hover {
+            transform: translateY(-8px);
+        }
+        .social-icon {
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            color: var(--dark-olive);
+            font-size: 1.3rem;
+        }
+        .social-icon:hover {
+            background-color: var(--carrot-orange);
+            color: white;
+            transform: translateY(-3px);
+        }
+        /* modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: var(--white-smoke);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-left: 6px solid var(--carrot-orange);
+        }
+        .close-modal {
+            float: right;
+            font-size: 1.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--carrot-orange);
+        }
+        @media (max-width: 768px) {
+            .nutrient-circle { width: 260px; min-height: 260px; }
+            .hero-title { font-size: 2.5rem !important; }
+        }
+        .hero-title { font-size: 4.2rem; line-height: 1.2; }
+        .hero-sub { font-size: 2.2rem; }
+        /* larger legal links */
+        .legal-link {
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation (unchanged size increased earlier) -->
+    <nav class="fixed w-full z-50 bg-[#3B3D2B] shadow-lg border-b border-[#C5BD61]/30">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-[#FF8A1C] rotate-45 flex items-center justify-center">
+                    <span class="text-[#3B3D2B] -rotate-45 font-bold text-sm">G</span>
+                </div>
+                <span class="text-xl font-bold tracking-tighter uppercase text-white">GROW-WIN <span class="text-[#FF8A1C] font-light italic">NutriRice</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-base font-semibold uppercase tracking-wider">
+                <a href="#home" class="text-white hover:text-[#FF8A1C] transition">Home</a>
+                <a href="#science" class="text-white hover:text-[#FF8A1C] transition">The Science</a>
+                <a href="#transformation" class="text-white hover:text-[#FF8A1C] transition">30-Day Plan</a>
+                <a href="#packs" class="text-white hover:text-[#FF8A1C] transition">Packs</a>
+                <a href="#about" class="text-white hover:text-[#FF8A1C] transition">About</a>
+                <a href="#contact" class="text-white hover:text-[#FF8A1C] transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Dark Beige background -->
+    <section id="home" class="relative pt-36 pb-28 px-5 md:px-8 overflow-hidden bg-dark-beige">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+            <div>
+                <span class="text-[#3B3D2B] font-semibold tracking-[0.2em] uppercase text-sm mb-5 block">India's Next-Gen Functional Staple</span>
+                <h1 class="hero-title font-serif font-bold text-[#3B3D2B]">
+                    Not Just Rice...<br>
+                    <span class="hero-sub italic text-[#3B3D2B]/70 font-light block mt-1">A Daily Nutrition System.</span>
+                </h1>
+                <p class="text-lg text-[#3B3D2B]/80 mb-8 max-w-lg leading-relaxed">
+                    A smarter way to eat daily. Designed for better health, steady energy, and everyday wellness.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#science" class="btn-primary px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest shadow-md">Explore Benefits</a>
+                    <a href="#packs" class="btn-outline px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest">Reserve Your Pack</a>
+                </div>
+                <div class="flex flex-wrap gap-5 mt-8 text-[11px] font-semibold uppercase tracking-wider text-[#3B3D2B]">
+                    <span>Functional Food</span>
+                    <span>Daily Nutrition</span>
+                    <span>Family Safe</span>
+                </div>
+            </div>
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="absolute w-80 h-80 bg-[#FF8A1C]/10 rounded-full blur-3xl -z-0"></div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#C5BD61]/30 w-full max-w-md aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800&h=1000')] bg-cover bg-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#3B3D2B]/80 via-transparent to-transparent flex flex-col justify-end p-7 text-white">
+                        <p class="text-[#FF8A1C] font-bold mb-1 text-[11px] uppercase tracking-wider">proprietary process</p>
+                        <h3 class="text-xl font-serif">GROW-WIN Nutrient Activation</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Science: Nutritional Architecture (unchanged) -->
+    <section id="science" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-4 font-serif text-[#3B3D2B]">The Nutritional Architecture</h2>
+                <p class="text-[#FF8A1C] uppercase tracking-[0.25em] text-[11px] font-bold">A balanced blend for everyday wellness</p>
+                <div class="w-20 h-0.5 bg-[#C5BD61]/40 mx-auto mt-5"></div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-12 lg:gap-16 relative items-start">
+                <svg class="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none">
+                    <circle cx="50%" cy="50%" r="380" fill="none" stroke="rgba(197, 189, 97, 0.08)" stroke-width="1.2" stroke-dasharray="6 6"/>
+                </svg>
+                <div class="nutrient-circle z-10 shadow-xl" data-tilt-max="12" data-tilt-speed="400">
+                    <span class="orbit-label">Vitamins</span>
+                    <h4 class="text-[#FF8A1C] font-serif text-2xl mb-4">Vitamin Matrix</h4>
+                    <div class="space-y-3 text-left w-full px-2">
+                        <div><p class="text-[12px] leading-tight"><b>Vitamin E</b><span> Cell & heart support</span></p></div>
+                        <div><p class="text-[12px] leading-tight"><b>Vitamin A</b><span> Immunity & vision</span></p></div>
+                        <div><p class="text-[12px] leading-tight"><b>B-Complex</b><span> Energy & brain function</span></p></div>
+                    </div>
+                </div>
+                <div class="nutrient-circle z-10 shadow-xl lg:mt-20" data-tilt-max="12" data-tilt-speed="400">
+                    <span class="orbit-label">Minerals</span>
+                    <h4 class="text-[#FF8A1C] font-serif text-2xl mb-4">Mineral Core</h4>
+                    <div class="space-y-3 text-left w-full px-2">
+                        <div><p class="text-[12px] leading-tight"><b>Iron (Fe)</b><span> Supports hemoglobin</span></p></div>
+                        <div><p class="text-[12px] leading-tight"><b>Calcium & Magnesium</b><span> Bone strength</span></p></div>
+                        <div><p class="text-[12px] leading-tight"><b>Zinc (Zn)</b><span> Immunity & repair</span></p></div>
+                    </div>
+                </div>
+                <div class="nutrient-circle z-10 shadow-xl" data-tilt-max="12" data-tilt-speed="400">
+                    <span class="orbit-label">Smart Nutrition</span>
+                    <h4 class="text-[#FF8A1C] font-serif text-2xl mb-4">Bio-Actives</h4>
+                    <div class="space-y-3 text-left w-full px-2">
+                        <div><p class="text-[12px] leading-tight"><b>Omega 3,6,9</b><span> Healthy fats</span></p></div>
+                        <div><p class="text-[12px] leading-tight"><b>Soluble Fiber</b><span> Supports glycemic balance</span></p></div>
+                        <div><p class="text-[12px] leading-tight"><b>Plant Actives</b><span> Natural wellness support</span></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 30-Day Impact (unchanged, dark background) -->
+    <section id="transformation" class="py-24 bg-[#3B3D2B] text-white relative overflow-hidden">
+        <div class="absolute opacity-5 right-0 top-10 text-[14rem] font-serif select-none pointer-events-none leading-none">30</div>
+        <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-14 items-start">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl mb-6 leading-[1.2]">Feel the Difference <br><span class="text-[#FF8A1C]">in 30 Days</span></h2>
+                    <p class="text-gray-300 mb-8 text-lg">With consistent daily use, NutriRice becomes your foundation for lasting vitality.</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="benefit-card"><h4 class="font-bold uppercase tracking-wider text-sm text-[#FF8A1C]">Improved daily energy</h4><p class="text-gray-200 text-sm">Optimized metabolic support for steady performance.</p></div>
+                        <div class="benefit-card"><h4 class="font-bold uppercase tracking-wider text-sm text-[#FF8A1C]">Better digestion & gut comfort</h4><p class="text-gray-200 text-sm">Soluble fiber for smoother digestion.</p></div>
+                        <div class="benefit-card"><h4 class="font-bold uppercase tracking-wider text-sm text-[#FF8A1C]">Reduced tiredness & weakness</h4><p class="text-gray-200 text-sm">Iron & B-vitamins to combat daily fatigue.</p></div>
+                        <div class="benefit-card"><h4 class="font-bold uppercase tracking-wider text-sm text-[#FF8A1C]">Support for stable blood sugar response</h4><p class="text-gray-200 text-sm">Balanced nutrients promoting glycemic wellness.</p></div>
+                        <div class="benefit-card"><h4 class="font-bold uppercase tracking-wider text-sm text-[#FF8A1C]">Overall wellness improvement</h4><p class="text-gray-200 text-sm">A holistic upgrade to your daily nutrition.</p></div>
+                    </div>
+                    <div class="mt-8 text-[11px] text-gray-400 border-t border-white/10 pt-5 italic">Results vary based on individual lifestyle, medical history, and diet. This is a functional food designed to support wellness.</div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 text-center mb-8 transition-all hover:bg-white/20 hover:scale-[1.01] duration-300">
+                        <h3 class="text-2xl font-serif mb-4 text-[#FF8A1C] italic">"Eat Daily. Transform Naturally."</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Replace your regular rice with NutriRice — no taste change, no extra effort. Integrate smart nutrition into every meal effortlessly.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-white/10 p-4 rounded-lg hover:bg-white/20 transition"><span class="text-[#C5BD61] font-bold block text-sm uppercase tracking-wide">Family-friendly</span></div>
+                        <div class="bg-white/10 p-4 rounded-lg hover:bg-white/20 transition"><span class="text-[#C5BD61] font-bold block text-sm uppercase tracking-wide">Cook like regular rice</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Change. Real Impact. (Dark Beige background) -->
+    <section class="py-20 bg-dark-beige">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif mb-3 text-[#3B3D2B]">Simple Change. Real Impact.</h2>
+                <div class="w-16 h-px bg-[#3B3D2B]/30 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white/90"><div class="text-4xl text-[#FF8A1C] mb-4 font-serif">✦</div><h3 class="font-bold text-xl mb-2 text-[#3B3D2B]">No Habit Change</h3><p class="text-gray-600 text-sm">Cook exactly like your regular rice — same taste, same process, smarter nutrition.</p></div>
+                <div class="feature-card bg-white/90"><div class="text-4xl text-[#FF8A1C] mb-4 font-serif">✦</div><h3 class="font-bold text-xl mb-2 text-[#3B3D2B]">For All Ages</h3><p class="text-gray-600 text-sm">Safe for children, working professionals, women, and elders. One rice for the whole family.</p></div>
+                <div class="feature-card bg-white/90"><div class="text-4xl text-[#FF8A1C] mb-4 font-serif">✦</div><h3 class="font-bold text-xl mb-2 text-[#3B3D2B]">Designed for Daily Use</h3><p class="text-gray-600 text-sm">Consistent functional staple with essential vitamins, minerals, and smart fibers.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Packs Section (Dark Beige background) -->
+    <section id="packs" class="py-24 bg-dark-beige">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-serif text-[#3B3D2B]">Choose Your Pack</h2>
+                <p class="text-[#3B3D2B] font-medium mt-2">Premium functional staple — transparent & trusted</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="pack-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-xl"><div class="h-2 bg-[#C5BD61]"></div><div class="p-7"><div><h4 class="text-xs font-bold text-[#FF8A1C] mb-2 tracking-widest uppercase">Starter</h4><h3 class="text-2xl font-serif mb-3">5 KG Family Pack</h3><p class="text-gray-600 text-sm italic mb-6">“Rice so good, even leftovers feel special.”</p></div><button class="w-full py-3 border border-[#3B3D2B] text-xs font-bold uppercase tracking-widest hover:bg-[#3B3D2B] hover:text-white transition-all rounded-md">Select Pack</button></div></div>
+                <div class="pack-card bg-[#3B3D2B] rounded-xl shadow-2xl overflow-hidden transition hover:scale-[1.02]"><div class="h-2 bg-[#FF8A1C]"></div><div class="p-7"><div><h4 class="text-xs font-bold text-[#FF8A1C] mb-2 tracking-widest uppercase">The Standard</h4><h3 class="text-2xl font-serif mb-3 text-white">10 KG Value Pack</h3><p class="text-gray-300 text-sm italic mb-6">“Your future self will thank you — one grain at a time.”</p></div><button class="w-full py-3 bg-[#FF8A1C] text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3B3D2B] transition-all rounded-md">Select Pack</button></div></div>
+                <div class="pack-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-xl"><div class="h-2 bg-[#8F8A66]"></div><div class="p-7"><div><h4 class="text-xs font-bold text-[#FF8A1C] mb-2 tracking-widest uppercase">Institutional</h4><h3 class="text-2xl font-serif mb-3">25 KG Bulk Pack</h3><p class="text-gray-600 text-sm italic mb-6">“Feed a crowd, earn legendary status.”</p></div><button class="w-full py-3 border border-[#3B3D2B] text-xs font-bold uppercase tracking-widest hover:bg-[#3B3D2B] hover:text-white transition-all rounded-md">Select Pack</button></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why GROW-WIN (unchanged, white background) -->
+    <section id="about" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div><h2 class="text-3xl md:text-4xl font-serif mb-6 text-[#3B3D2B]">Why GROW-WIN</h2><ul class="space-y-5"><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Developed through practical research focused on real nutrition problems.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Built for Indian households & daily eating habits — no complexity.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Consistent quality approach & nutrient activation process.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Transparent formula focused on safety and everyday wellness.</span></li></ul></div>
+                <div class="bg-[#EBE6C2]/40 p-8 rounded-2xl border-l-8 border-[#FF8A1C] transition hover:shadow-md"><p class="text-2xl font-serif italic text-[#3B3D2B] mb-4">“Making Everyday Food Smarter, Healthier, and Accessible for All.”</p><p class="text-gray-600 text-sm">From rural innovation to modern nutrition, we build functional staples that solve real health needs — no gimmicks, just daily support.</p><div class="mt-6 pt-4 border-t border-[#C5BD61]/30"><p class="text-[10px] uppercase tracking-wider text-[#FF8A1C] font-bold">Powered by GROW-WIN Nutrient Activation Process</p><p class="text-[10px] text-gray-500 mt-1">(Proprietary method · formula confidential)</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Modals (unchanged) -->
+    <div id="privacyModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('privacyModal')">&times;</span><h3>Privacy Policy</h3><div><p>GROW-WIN NutriRice is committed to protecting the privacy of its users and ensuring that personal information is handled responsibly. When you interact with our website, we may collect basic information such as your name, phone number, email address, delivery address, and any details you provide through inquiry or contact forms. This information is used solely for the purpose of responding to your requests, processing orders, improving our services, and communicating relevant updates where permitted.
+
+We implement reasonable security measures to safeguard your data against unauthorized access, misuse, or disclosure. GROW-WIN does not sell, rent, or trade personal information to third parties. Information may be shared only with trusted service providers such as delivery partners or payment processors when necessary to fulfill services.
+
+Our website may use basic cookies to enhance user experience and analyze performance. By using our website, you consent to the use of such technologies. Users have the right to request access to their personal data, request corrections, or ask for deletion of their information at any time.
+
+This Privacy Policy may be updated periodically to reflect changes in practices or legal requirements. Continued use of the website indicates acceptance of any updates. For any concerns regarding privacy, users may contact GROW-WIN through the official communication channels provided on the website.</p></div></div></div>
+    <div id="termsModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('termsModal')">&times;</span><h3>Terms of Use</h3><div><p>By accessing and using the GROW-WIN NutriRice website, you agree to comply with these terms and conditions. The content provided on this website is intended for general information and product awareness purposes only. Users are expected to use the website responsibly and must not misuse, copy, reproduce, or distribute any content without prior written permission from GROW-WIN.
+
+While we strive to ensure that all product information is accurate and up to date, GROW-WIN reserves the right to modify product details, availability, or pricing without prior notice. All orders are subject to acceptance and availability, and we reserve the right to refuse or cancel orders at our discretion.
+
+All intellectual property, including the brand name, logo, product descriptions, and design elements, remains the exclusive property of GROW-WIN. Unauthorized use of any materials is strictly prohibited.
+
+GROW-WIN shall not be held liable for any direct or indirect damages arising from the use or misuse of the product, reliance on website content, or individual health variations. The website may contain links to third-party platforms, and GROW-WIN is not responsible for the content or practices of those external sites.
+
+These terms may be revised at any time without prior notice. Continued use of the website constitutes acceptance of the updated terms.</p></div></div></div>
+    <div id="disclaimerModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('disclaimerModal')">&times;</span><h3>Disclaimer</h3><div><p>GROW-WIN NutriRice is a functional food product developed to support general nutrition and overall wellness as part of a balanced daily diet. It is not a pharmaceutical product and is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Any statements regarding health benefits are based on general nutritional properties of the ingredients and are not medical claims.
+
+Individual results may vary depending on factors such as diet, lifestyle, and existing health conditions. Consumers with specific medical concerns, dietary restrictions, or ongoing treatments are advised to consult a qualified healthcare professional before incorporating this product into their routine.
+
+This product is designed for regular dietary use and should be consumed as part of a varied and balanced diet. By using this product, the consumer acknowledges and accepts these conditions.</p></div></div></div>
+
+    <!-- FOOTER: address left, contact middle, social right with "Follow..." text, no brand line, larger legal links -->
+    <footer class="bg-[#3B3D2B] pt-12 pb-8 text-white/80 border-t border-[#C5BD61]/20" id="contact">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-8">
+                <!-- Left: Visit Us address -->
+                <div class="text-left">
+                    <span class="text-[#EBE6C2] text-xs font-bold uppercase tracking-wider block mb-2">Visit Us</span>
+                    <p class="text-sm text-gray-300">Parvathipuram Manyam District,<br>Andhra Pradesh, India - 535501</p>
+                </div>
+                <!-- Middle: Contact vertical -->
+                <div class="text-left">
+                    <span class="text-[#EBE6C2] text-xs font-bold uppercase tracking-wider block mb-2">Contact</span>
+                    <div class="flex flex-col gap-2 text-sm">
+                        <span><i class="fas fa-phone-alt text-[#FF8A1C] mr-2"></i> +91 98765 43210</span>
+                        <span><i class="fas fa-phone-alt text-[#FF8A1C] mr-2"></i> +91 84660 13670</span>
+                        <span><i class="fas fa-envelope text-[#FF8A1C] mr-2"></i> hello@grow-win.com</span>
+                    </div>
+                </div>
+                <!-- Right: Social icons + Follow text -->
+                <div class="text-center lg:text-right">
+                    <div class="flex flex-row gap-4 justify-center lg:justify-end">
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="mt-3 text-[11px] text-gray-400">Follow for updates & wellness insights</div>
+                </div>
+            </div>
+            <!-- Horizontal legal links (larger) -->
+            <div class="flex flex-wrap justify-center gap-8 md:gap-10 mt-10 pt-6 border-t border-[#C5BD61]/20">
+                <a href="#" onclick="openModal('privacyModal'); return false;" class="text-[#EBE6C2] hover:text-[#FF8A1C] transition uppercase tracking-wide legal-link">Privacy Policy</a>
+                <a href="#" onclick="openModal('termsModal'); return false;" class="text-[#EBE6C2] hover:text-[#FF8A1C] transition uppercase tracking-wide legal-link">Terms of Use</a>
+                <a href="#" onclick="openModal('disclaimerModal'); return false;" class="text-[#EBE6C2] hover:text-[#FF8A1C] transition uppercase tracking-wide legal-link">Disclaimer</a>
+            </div>
+            <!-- Removed the GROW-WIN NutriRice "Making everyday food smarter" line as requested -->
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".nutrient-circle"), { max: 14, speed: 500, glare: true, "max-glare": 0.3, gyroscope: true, scale: 1.02 });
+        if (window.innerWidth < 768) VanillaTilt.init(document.querySelectorAll(".nutrient-circle"), { max: 6, glare: false });
+        function openModal(id) { document.getElementById(id).style.display = "flex"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = "none"; }
+        // set WhatsApp link
+        const waLink = document.querySelector('a[href="#"].social-icon .fa-whatsapp')?.closest('a');
+        if (waLink) waLink.href = 'https://wa.me/918466013670';
+    </script>
+</body>
+</html>
