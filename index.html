@@ -45,7 +45,7 @@
             background-color: var(--dark-olive);
             color: white;
         }
-        /* 3D Tilt Circles */
+        /* 3D Tilt Circles – kept in case, but not used */
         .nutrient-circle {
             width: 300px;
             min-height: 300px;
@@ -130,6 +130,7 @@
             transform: scale(1.02);
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
+        /* Social icons – white circle background, original brand colors */
         .social-icon {
             transition: all 0.2s ease;
             display: inline-flex;
@@ -138,14 +139,27 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.2);
-            color: var(--dark-olive);
+            background-color: #FFFFFF;
             font-size: 1.3rem;
         }
+        .social-icon i {
+            transition: color 0.2s ease;
+        }
+        /* Instagram original color */
+        .social-icon .fa-instagram { color: #E4405F; }
+        /* Facebook original color */
+        .social-icon .fa-facebook-f { color: #1877F2; }
+        /* WhatsApp original color */
+        .social-icon .fa-whatsapp { color: #25D366; }
+        /* LinkedIn original color */
+        .social-icon .fa-linkedin-in { color: #0A66C2; }
+        /* On hover, change background to gold and icon to white */
         .social-icon:hover {
             background-color: var(--carrot-orange);
-            color: white;
             transform: translateY(-3px);
+        }
+        .social-icon:hover i {
+            color: white !important;
         }
         .modal {
             display: none;
@@ -193,18 +207,18 @@
 </head>
 <body>
 
-    <!-- Navigation – unchanged -->
-    <nav class="fixed w-full z-50 bg-[#3B3D2B] shadow-lg border-b border-[#C5BD61]/30">
-        <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <img src="https://uploads.onecompiler.io/44muwes4k/44muwbvqx/WhatsApp_Image_2026-04-21_at_2.22.04_PM__1_-removebg-preview%20(1).png" alt="GROW-WIN Logo" class="w-8 h-8 object-contain" 
+    <!-- Navigation – unchanged (increased size) -->
+    <nav class="fixed w-full z-50 bg-[#3B3D2B] shadow-lg border-b-[20px] border-[#C5BD61]/30">
+        <div class="max-w-7xl mx-auto px-8 md:px-8 h-28 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://uploads.onecompiler.io/44muwes4k/44muwbvqx/WhatsApp_Image_2026-04-21_at_2.22.04_PM__1_-removebg-preview%20(1).png" alt="GROW-WIN Logo" class="w-12 h-12 object-contain" 
                      onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="w-8 h-8 bg-[#FF8A1C] rotate-45 flex items-center justify-center" style="display: none;">
-                    <span class="text-[#3B3D2B] -rotate-45 font-bold text-sm">G</span>
+                <div class="w-12 h-12 bg-[#FF8A1C] rotate-45 flex items-center justify-center" style="display: none;">
+                    <span class="text-[#3B3D2B] -rotate-45 font-bold text-lg">G</span>
                 </div>
-                <span class="text-xl font-bold tracking-tighter uppercase text-white">GROW-WIN <span class="text-[#FF8A1C] font-light italic">NutriRice</span></span>
+                <span class="text-2xl font-bold tracking-tighter uppercase text-white">GROW-WIN <span class="text-[#FF8A1C] font-light italic">NutriRice</span></span>
             </div>
-            <div class="hidden md:flex space-x-8 text-base font-semibold uppercase tracking-wider">
+            <div class="hidden md:flex space-x-10 text-lg font-semibold uppercase tracking-wider">
                 <a href="#home" class="text-white hover:text-[#FF8A1C] transition">Home</a>
                 <a href="#science" class="text-white hover:text-[#FF8A1C] transition">The Science</a>
                 <a href="#usage" class="text-white hover:text-[#FF8A1C] transition">Usage</a>
@@ -221,7 +235,7 @@
             <div>
                 <span class="text-[#3B3D2B] font-semibold tracking-[0.5em] uppercase text-sm mb-8 block"></span>
                 <h1 class="hero-title font-serif font-bold text-[#3B3D2B]">
-                    Naturally enriched rice made with rice, rice bran, and plant-based ingredients for everyday nutrition.
+                    Naturally Bioactive Enriched Rice for Daily Nutrition – Made with Rice, Rice Bran & Plant-Based Ingredients
                 </h1>
                 <p class="text-lg text-[#3B3D2B]/80 mb-8 max-w-lg leading-relaxed"></p>
                 <div class="flex flex-wrap gap-5">
@@ -247,50 +261,53 @@
         </div>
     </section>
 
-    <!-- The Science: Nutritional Architecture -->
-    <section id="science" class="py-24 bg-white overflow-hidden">
+    <!-- Laboratory Test Results Section -->
+    <section id="science" class="py-16 bg-[#F9F6F0] border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl mb-4 font-serif text-[#3B3D2B]">Nutritional Composition</h2>
-                <div class="w-20 h-0.5 bg-[#C5BD61]/40 mx-auto mt-5"></div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif mb-3 text-[#3B3D2B]">Laboratory Test Results</h2>
+                <p class="text-[#8F8A66] max-w-2xl mx-auto">As per analysis report no. IFSH-260508003 </p>
+                <div class="w-16 h-px bg-[#C5BD61]/40 mx-auto mt-4"></div>
             </div>
-            <div class="flex flex-wrap justify-center gap-12 lg:gap-16 relative items-start">
-                <svg class="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none">
-                    <circle cx="50%" cy="50%" r="380" fill="none" stroke="rgba(197, 189, 97, 0.08)" stroke-width="1.2" stroke-dasharray="6 6"/>
-                </svg>
-                <div class="nutrient-circle z-10 shadow-xl" data-tilt-max="12" data-tilt-speed="400">
-                    <span class="orbit-label">Vitamins</span>
-                    <h4 class="text-[#FF8A1C] font-serif text-2xl mb-4">Vitamin Matrix</h4>
-                    <div class="space-y-3 text-left w-full px-2">
-                        <div><p class="text-[12px] leading-tight"><b>Vitamin E</b><span> (from rice bran oil)</span></p></div>
-                        <div><p class="text-[12px] leading-tight"><b>Vitamin A</b><span> (from natural plant sources)</span></p></div>
-                        <div><p class="text-[12px] leading-tight"><b>B-Complex</b><span> (naturally occurring in ingredients)</span></p></div>
-                    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-serif text-[#FF8A1C] mb-3">Proximate Composition</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between"><span class="font-medium">Moisture</span><span>12.32 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Protein</span><span class="font-semibold text-[#3B3D2B]">9.96 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Fat</span><span>1.92 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Carbohydrates</span><span>75.33 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Energy</span><span>358.44 kcal/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Dietary Fiber</span><span class="font-semibold text-[#3B3D2B]">1.52 g/100g</span></li>
+                    </ul>
                 </div>
-                <div class="nutrient-circle z-10 shadow-xl lg:mt-20" data-tilt-max="12" data-tilt-speed="400">
-                    <span class="orbit-label">Minerals</span>
-                    <h4 class="text-[#FF8A1C] font-serif text-2xl mb-4">Mineral Core</h4>
-                    <div class="space-y-3 text-left w-full px-2">
-                        <div><p class="text-[12px] leading-tight"><b>Iron (Fe)</b><span> from plant‑based sources</span></p></div>
-                        <div><p class="text-[12px] leading-tight"><b>Calcium & Magnesium</b><span> from natural ingredients</span></p></div>
-                        <div><p class="text-[12px] leading-tight"><b>Zinc (Zn)</b><span> naturally present in formulation</span></p></div>
-                    </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-serif text-[#FF8A1C] mb-3">Key Minerals</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between"><span class="font-medium">Iron (Fe)</span><span class="font-semibold text-[#3B3D2B]">1.0 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Zinc (Zn)</span><span class="font-semibold text-[#3B3D2B]">1.0 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Calcium (Ca)</span><span class="font-semibold text-[#3B3D2B]">9.56 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Phosphorus (P)</span><span>124.05 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Potassium (K)</span><span>0.14 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Manganese (Mn)</span><span>0.90 mg/100g</span></li>
+                    </ul>
                 </div>
-                <div class="nutrient-circle z-10 shadow-xl" data-tilt-max="12" data-tilt-speed="400">
-                    <span class="orbit-label">Bio-Actives</span>
-                    <h4 class="text-[#FF8A1C] font-serif text-2xl mb-4">Plant & Lipid Components</h4>
-                    <div class="space-y-3 text-left w-full px-2">
-                        <div><p class="text-[12px] leading-tight"><b>Moringa & Fenugreek</b><span> plant‑based ingredients</span></p></div>
-                        <div><p class="text-[12px] leading-tight"><b>Natural rice bran lipids</b><span> (omega profile)</span></p></div>
-                        <div><p class="text-[12px] leading-tight"><b>Dietary fiber</b><span>Dietary fiber supporting texture and nutritional balance</span></p></div>
-                    </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-serif text-[#FF8A1C] mb-3">Bioactive & Functional Components</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between"><span class="font-medium">Oryzanol</span><span class="font-semibold text-[#3B3D2B]">1.13 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Saponins</span><span class="font-semibold text-[#3B3D2B]">2.72 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Omega‑6 (Linoleic acid)</span><span class="font-semibold text-[#3B3D2B]">1.92 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Folic Acid</span><span class="font-semibold text-[#3B3D2B]">9.0 µg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Ash</span><span>0.47 g/100g</span></li>
+                    </ul>
                 </div>
             </div>
-            <p class="text-center text-xs text-gray-500 mt-12 max-w-2xl mx-auto">Prepared using controlled ingredient integration for consistent quality.</p>
+            <p class="text-center text-xs text-gray-500 mt-6">*Tested at FSSAI accredited laboratory. Report available upon request.</p>
         </div>
     </section>
 
-    <!-- Usage Section (properly closed) -->
+    <!-- Usage Section -->
     <section id="usage" class="py-24 bg-[#3B3D2B] text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
             <div class="text-center mb-12">
@@ -320,17 +337,15 @@
         </div>
     </section>
 
-    <!-- Product Packs Section (equal image heights) -->
+    <!-- Product Packs Section -->
     <section id="packs" class="py-24 bg-dark-beige">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="text-center mb-14">
                 <h2 class="text-4xl font-serif text-[#3B3D2B]">Choose Your Pack</h2>
                 <p class="text-[#3B3D2B] font-medium mt-2">Premium functional staple — transparent & trusted</p>
             </div>
-
             <div class="grid md:grid-cols-3 gap-12 text-center">
-
-                <!-- 5 KG Family Pack -->
+                <!-- 5 KG -->
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h4 class="text-xs font-bold text-[#FF8A1C] mb-2 tracking-widest uppercase">Starter</h4>
@@ -344,8 +359,7 @@
                         <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%205%20KG%20Family%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20more%20details%20about%20ordering%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#3B3D2B] transition">Select Pack</a>
                     </div>
                 </div>
-
-                <!-- 10 KG Value Pack -->
+                <!-- 10 KG -->
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h4 class="text-xs font-bold text-[#FF8A1C] mb-2 tracking-widest uppercase">The Standard</h4>
@@ -359,8 +373,7 @@
                         <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%2010%20KG%20Value%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20ordering%20information%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#3B3D2B] transition">Select Pack</a>
                     </div>
                 </div>
-
-                <!-- 25 KG Bulk Pack -->
+                <!-- 25 KG -->
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h4 class="text-xs font-bold text-[#FF8A1C] mb-2 tracking-widest uppercase">Institutional</h4>
@@ -374,7 +387,6 @@
                         <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%2025%20KG%20Bulk%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20details%20for%20bulk%20ordering%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#3B3D2B] transition">Select Pack</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -412,7 +424,7 @@ Individual results may vary depending on factors such as diet, lifestyle, and ex
 
 This product is designed for regular dietary use and should be consumed as part of a varied and balanced diet. By using this product, the consumer acknowledges and accepts these conditions.</p></div></div></div>
 
-    <!-- Footer (unchanged) -->
+    <!-- Footer with white circle social icons -->
     <footer class="bg-[#3B3D2B] pt-12 pb-8 text-white/80 border-t border-[#C5BD61]/20" id="contact">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-8">
@@ -448,8 +460,10 @@ This product is designed for regular dietary use and should be consumed as part 
 
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
     <script>
-        VanillaTilt.init(document.querySelectorAll(".nutrient-circle"), { max: 14, speed: 500, glare: true, "max-glare": 0.3, gyroscope: true, scale: 1.02 });
-        if (window.innerWidth < 768) VanillaTilt.init(document.querySelectorAll(".nutrient-circle"), { max: 6, glare: false });
+        if (document.querySelectorAll(".nutrient-circle").length > 0) {
+            VanillaTilt.init(document.querySelectorAll(".nutrient-circle"), { max: 14, speed: 500, glare: true, "max-glare": 0.3, gyroscope: true, scale: 1.02 });
+            if (window.innerWidth < 768) VanillaTilt.init(document.querySelectorAll(".nutrient-circle"), { max: 6, glare: false });
+        }
         function openModal(id) { document.getElementById(id).style.display = "flex"; }
         function closeModal(id) { document.getElementById(id).style.display = "none"; }
         window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = "none"; }
