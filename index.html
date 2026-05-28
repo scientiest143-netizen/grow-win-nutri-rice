@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --white-smoke: #FDFDFD;
+            --white-smoke: #dad7cd;        /* light beige background */
             --pungent-garlic: #EBE6C2;
-            --olive-brass: #C5BD61;
+            --olive-brass: #588157;
             --carrot-orange: #FF8A1C;
-            --muted-olive: #8F8A66;
-            --dark-olive: #3B3D2B;
-            --dark-beige: #C2A575;
+            --muted-olive: #3a5a40;
+            --dark-olive: #344e41;
+            --dark-beige: #a3b18a;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -51,7 +51,7 @@
         .nutrient-circle {
             width: 300px;
             min-height: 300px;
-            border: 1px solid rgba(197, 189, 97, 0.3);
+            border: 1px solid rgba(88, 129, 87, 0.3);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -71,7 +71,7 @@
         }
         .nutrient-circle:hover {
             border-color: var(--olive-brass);
-            box-shadow: 0 30px 40px -15px rgba(197, 189, 97, 0.35);
+            box-shadow: 0 30px 40px -15px rgba(88, 129, 87, 0.35);
         }
         .orbit-label {
             position: absolute;
@@ -112,7 +112,7 @@
         .feature-card:hover {
             transform: translateY(-6px);
             border-color: var(--olive-brass);
-            box-shadow: 0 20px 25px -12px rgba(197,189,97,0.2);
+            box-shadow: 0 20px 25px -12px rgba(88, 129, 87, 0.2);
         }
         .pack-card {
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -147,15 +147,10 @@
         .social-icon i {
             transition: color 0.2s ease;
         }
-        /* Instagram original color */
         .social-icon .fa-instagram { color: #E4405F; }
-        /* Facebook original color */
         .social-icon .fa-facebook-f { color: #1877F2; }
-        /* WhatsApp original color */
         .social-icon .fa-whatsapp { color: #25D366; }
-        /* LinkedIn original color */
         .social-icon .fa-linkedin-in { color: #0A66C2; }
-        /* On hover, change background to gold and icon to white */
         .social-icon:hover {
             background-color: var(--carrot-orange);
             transform: translateY(-3px);
@@ -209,14 +204,14 @@
 </head>
 <body>
 
-    <!-- Navigation – unchanged (increased size) -->
-    <nav class="fixed w-full z-50 bg-[#3B3D2B] shadow-lg border-b-[20px] border-[#C5BD61]/30">
-        <div class="max-w-7xl mx-auto px-8 md:px-8 h-28 flex justify-between items-center">
+    <!-- Navigation – large logo, compact navbar height (h-32) -->
+    <nav class="fixed w-full z-50 bg-[#344e41] shadow-lg border-b-[20px] border-[#588157]/30">
+        <div class="max-w-7xl mx-auto px-8 md:px-8 h-32 flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <img src="https://uploads.onecompiler.io/44muwes4k/44muwbvqx/WhatsApp_Image_2026-04-21_at_2.22.04_PM__1_-removebg-preview%20(1).png" alt="GROW-WIN Logo" class="w-12 h-12 object-contain" 
+                <img src="https://uploads.onecompiler.io/44muwes4k/1779942805371/only%20logo.png" alt="GROW-WIN Logo" class="w-28 h-28 object-contain" 
                      onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="w-12 h-12 bg-[#FF8A1C] rotate-45 flex items-center justify-center" style="display: none;">
-                    <span class="text-[#3B3D2B] -rotate-45 font-bold text-lg">G</span>
+                <div class="w-28 h-28 bg-[#FF8A1C] rotate-45 flex items-center justify-center" style="display: none;">
+                    <span class="text-[#344e41] -rotate-45 font-bold text-3xl">G</span>
                 </div>
                 <span class="text-2xl font-bold tracking-tighter uppercase text-white">GROW-WIN <span class="text-[#FF8A1C] font-light italic">NutriRice</span></span>
             </div>
@@ -231,20 +226,20 @@
         </div>
     </nav>
 
-    <!-- Hero Section  -->
+    <!-- Hero Section (unchanged) -->
     <section id="home" class="relative pt-36 pb-28 px-5 md:px-8 overflow-hidden bg-dark-beige">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
             <div>
-                <span class="text-[#3B3D2B] font-semibold tracking-[0.5em] uppercase text-sm mb-8 block"></span>
-                <h1 class="hero-title font-serif font-bold text-[#3B3D2B]">
+                <span class="text-[#3a5a40] font-semibold tracking-[0.5em] uppercase text-sm mb-8 block"></span>
+                <h1 class="hero-title font-serif font-bold text-[#344e41]">
                     Naturally Bioactive Enriched Rice for Daily Nutrition – Made with Rice, Rice Bran & Plant-Based Ingredients
                 </h1>
-                <p class="text-lg text-[#3B3D2B]/80 mb-8 max-w-lg leading-relaxed"></p>
+                <p class="text-lg text-[#3a5a40]/80 mb-8 max-w-lg leading-relaxed"></p>
                 <div class="flex flex-wrap gap-5">
                     <a href="#science" class="btn-primary px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest shadow-md">Learn More</a>
                     <a href="#packs" class="btn-outline px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest">Shop Now</a>
                 </div>
-                <div class="flex flex-wrap gap-5 mt-8 text-[11px] font-semibold uppercase tracking-wider text-[#3B3D2B]">
+                <div class="flex flex-wrap gap-5 mt-8 text-[11px] font-semibold uppercase tracking-wider text-[#3a5a40]">
                     <span>Functional Food</span>
                     <span>Daily Nutrition</span>
                     <span>Family Suitable</span>
@@ -253,8 +248,8 @@
             </div>
             <div class="relative flex justify-center lg:justify-end">
                 <div class="absolute w-80 h-80 bg-[#FF8A1C]/10 rounded-full blur-3xl -z-0"></div>
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#C5BD61]/30 w-full max-w-md aspect-[4/5] bg-[url('https://uploads.onecompiler.io/44muwes4k/44mv89wfu/WhatsApp%20Image%202026-04-30%20at%2011.01.46%20AM.jpeg')] bg-cover bg-center">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#3B3D2B]/80 via-transparent to-transparent flex flex-col justify-end p-7 text-white">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#588157]/30 w-full max-w-md aspect-[4/5] bg-[url('https://uploads.onecompiler.io/44muwes4k/44mv89wfu/WhatsApp%20Image%202026-04-30%20at%2011.01.46%20AM.jpeg')] bg-cover bg-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#344e41]/80 via-transparent to-transparent flex flex-col justify-end p-7 text-white">
                         <p class="text-[#FF8A1C] font-bold mb-1 text-[11px] uppercase tracking-wider"></p>
                         <h3 class="text-xl font-serif">GROW-WIN Nutrient Integration System</h3>
                     </div>
@@ -263,32 +258,32 @@
         </div>
     </section>
 
-    <!-- Laboratory Test Results Section -->
-    <section id="science" class="py-16 bg-[#F9F6F0] border-y border-gray-200">
+    <!-- Laboratory Test Results Section (unchanged) -->
+    <section id="science" class="py-16 bg-[#dad7cd] border-y border-gray-200">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-serif mb-3 text-[#3B3D2B]">Laboratory Test Results</h2>
-                <p class="text-[#8F8A66] max-w-2xl mx-auto">As per analysis report no. IFSH-260508003 </p>
-                <div class="w-16 h-px bg-[#C5BD61]/40 mx-auto mt-4"></div>
+                <h2 class="text-3xl md:text-4xl font-serif mb-3 text-[#344e41]">Laboratory Test Results</h2>
+                <p class="text-[#3a5a40] max-w-2xl mx-auto">As per analysis report no. IFSH-260508003 </p>
+                <div class="w-16 h-px bg-[#588157]/40 mx-auto mt-4"></div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
                     <h3 class="text-xl font-serif text-[#FF8A1C] mb-3">Proximate Composition</h3>
                     <ul class="space-y-2 text-sm text-gray-700">
                         <li class="flex justify-between"><span class="font-medium">Moisture</span><span>12.32 g/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Protein</span><span class="font-semibold text-[#3B3D2B]">9.96 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Protein</span><span class="font-semibold text-[#344e41]">9.96 g/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Fat</span><span>1.92 g/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Carbohydrates</span><span>75.33 g/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Energy</span><span>358.44 kcal/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Dietary Fiber</span><span class="font-semibold text-[#3B3D2B]">1.52 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Dietary Fiber</span><span class="font-semibold text-[#344e41]">1.52 g/100g</span></li>
                     </ul>
                 </div>
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
                     <h3 class="text-xl font-serif text-[#FF8A1C] mb-3">Key Minerals</h3>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between"><span class="font-medium">Iron (Fe)</span><span class="font-semibold text-[#3B3D2B]">1.0 mg/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Zinc (Zn)</span><span class="font-semibold text-[#3B3D2B]">1.0 mg/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Calcium (Ca)</span><span class="font-semibold text-[#3B3D2B]">9.56 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Iron (Fe)</span><span class="font-semibold text-[#344e41]">1.0 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Zinc (Zn)</span><span class="font-semibold text-[#344e41]">1.0 mg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Calcium (Ca)</span><span class="font-semibold text-[#344e41]">9.56 mg/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Phosphorus (P)</span><span>124.05 mg/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Potassium (K)</span><span>0.14 g/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Manganese (Mn)</span><span>0.90 mg/100g</span></li>
@@ -297,10 +292,10 @@
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
                     <h3 class="text-xl font-serif text-[#FF8A1C] mb-3">Bioactive & Functional Components</h3>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between"><span class="font-medium">Oryzanol</span><span class="font-semibold text-[#3B3D2B]">1.13 g/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Saponins</span><span class="font-semibold text-[#3B3D2B]">2.72 g/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Omega‑6 (Linoleic acid)</span><span class="font-semibold text-[#3B3D2B]">1.92 g/100g</span></li>
-                        <li class="flex justify-between"><span class="font-medium">Folic Acid</span><span class="font-semibold text-[#3B3D2B]">9.0 µg/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Oryzanol</span><span class="font-semibold text-[#344e41]">1.13 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Saponins</span><span class="font-semibold text-[#344e41]">2.72 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Omega‑6 (Linoleic acid)</span><span class="font-semibold text-[#344e41]">1.92 g/100g</span></li>
+                        <li class="flex justify-between"><span class="font-medium">Folic Acid</span><span class="font-semibold text-[#344e41]">9.0 µg/100g</span></li>
                         <li class="flex justify-between"><span class="font-medium">Ash</span><span>0.47 g/100g</span></li>
                     </ul>
                 </div>
@@ -309,8 +304,8 @@
         </div>
     </section>
 
-    <!-- Usage Section -->
-    <section id="usage" class="py-24 bg-[#3B3D2B] text-white relative overflow-hidden">
+    <!-- Usage Section (unchanged) -->
+    <section id="usage" class="py-24 bg-[#344e41] text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
             <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-serif mb-4">Designed for Everyday Use</h2>
@@ -339,12 +334,12 @@
         </div>
     </section>
 
-    <!-- Product Packs Section -->
+    <!-- Product Packs Section (unchanged) -->
     <section id="packs" class="py-24 bg-dark-beige">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="text-center mb-14">
-                <h2 class="text-4xl font-serif text-[#3B3D2B]">Choose Your Pack</h2>
-                <p class="text-[#3B3D2B] font-medium mt-2">Premium functional staple — transparent & trusted</p>
+                <h2 class="text-4xl font-serif text-[#344e41]">Choose Your Pack</h2>
+                <p class="text-[#3a5a40] font-medium mt-2">Premium functional staple — transparent & trusted</p>
             </div>
             <div class="grid md:grid-cols-3 gap-12 text-center">
                 <!-- 5 KG -->
@@ -358,7 +353,7 @@
                         </a>
                     </div>
                     <div class="mt-auto pt-5">
-                        <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%205%20KG%20Family%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20more%20details%20about%20ordering%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#3B3D2B] transition">Select Pack</a>
+                        <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%205%20KG%20Family%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20more%20details%20about%20ordering%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#344e41] transition">Select Pack</a>
                     </div>
                 </div>
                 <!-- 10 KG -->
@@ -372,7 +367,7 @@
                         </a>
                     </div>
                     <div class="mt-auto pt-5">
-                        <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%2010%20KG%20Value%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20ordering%20information%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#3B3D2B] transition">Select Pack</a>
+                        <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%2010%20KG%20Value%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20ordering%20information%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#344e41] transition">Select Pack</a>
                     </div>
                 </div>
                 <!-- 25 KG -->
@@ -386,19 +381,19 @@
                         </a>
                     </div>
                     <div class="mt-auto pt-5">
-                        <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%2025%20KG%20Bulk%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20details%20for%20bulk%20ordering%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#3B3D2B] transition">Select Pack</a>
+                        <a href="https://wa.me/918466013670?text=Hello%2C%20I%20am%20interested%20in%20the%2025%20KG%20Bulk%20Pack%20of%20GROW-WIN%20NutriRice.%20Please%20share%20details%20for%20bulk%20ordering%20and%20pricing." target="_blank" class="inline-block px-6 py-2 bg-[#FF8A1C] text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-[#344e41] transition">Select Pack</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why GROW-WIN -->
+    <!-- Why GROW-WIN (unchanged) -->
     <section id="about" class="py-20 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div><h2 class="text-3xl md:text-4xl font-serif mb-6 text-[#3B3D2B]">Why GROW-WIN</h2><ul class="space-y-5"><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Developed through practical research focused on real nutrition needs.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Built for Indian households and daily eating habits — no complexity.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Consistent quality approach and controlled processing method.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Focused on safety, simplicity, and everyday usability.</span></li></ul></div>
-                <div class="bg-[#EBE6C2]/40 p-8 rounded-2xl border-l-8 border-[#FF8A1C] transition hover:shadow-md"><p class="text-2xl font-serif italic text-[#3B3D2B] mb-4">“Making Everyday Food Smarter and More Accessible.”</p><p class="text-gray-600 text-sm">From rural innovation to modern nutrition, we build functional staples that solve real health needs — no gimmicks, just daily support.</p><div class="mt-6 pt-4 border-t border-[#C5BD61]/30"><p class="text-[10px] uppercase tracking-wider text-[#FF8A1C] font-bold">Powered by GROW-WIN Nutrient Integration System</p><p class="text-[10px] text-gray-500 mt-1">(Proprietary method · formula confidential)</p></div></div>
+                <div><h2 class="text-3xl md:text-4xl font-serif mb-6 text-[#344e41]">Why GROW-WIN</h2><ul class="space-y-5"><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Developed through practical research focused on real nutrition needs.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Built for Indian households and daily eating habits — no complexity.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Consistent quality approach and controlled processing method.</span></li><li class="flex items-start gap-3"><span class="text-[#FF8A1C] font-bold text-lg">—</span><span class="text-gray-700">Focused on safety, simplicity, and everyday usability.</span></li></ul></div>
+                <div class="bg-[#a3b18a]/40 p-8 rounded-2xl border-l-8 border-[#FF8A1C] transition hover:shadow-md"><p class="text-2xl font-serif italic text-[#344e41] mb-4">“Making Everyday Food Smarter and More Accessible.”</p><p class="text-gray-600 text-sm">From rural innovation to modern nutrition, we build functional staples that solve real health needs — no gimmicks, just daily support.</p><div class="mt-6 pt-4 border-t border-[#588157]/30"><p class="text-[10px] uppercase tracking-wider text-[#FF8A1C] font-bold">Powered by GROW-WIN Nutrient Integration System</p><p class="text-[10px] text-gray-500 mt-1">(Proprietary method · formula confidential)</p></div></div>
             </div>
         </div>
     </section>
@@ -426,16 +421,16 @@ Individual results may vary depending on factors such as diet, lifestyle, and ex
 
 This product is designed for regular dietary use and should be consumed as part of a varied and balanced diet. By using this product, the consumer acknowledges and accepts these conditions.</p></div></div></div>
 
-    <!-- Footer with white circle social icons -->
-    <footer class="bg-[#3B3D2B] pt-12 pb-8 text-white/80 border-t border-[#C5BD61]/20" id="contact">
+    <!-- Footer (unchanged) -->
+    <footer class="bg-[#344e41] pt-12 pb-8 text-white/80 border-t border-[#588157]/20" id="contact">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-8">
                 <div class="text-left">
-                    <span class="text-[#EBE6C2] text-xs font-bold uppercase tracking-wider block mb-2">Visit Us</span>
+                    <span class="text-[#FF8A1C] text-xs font-bold uppercase tracking-wider block mb-2">Visit Us</span>
                     <p class="text-sm text-gray-300">Parvathipuram Manyam District,<br>Andhra Pradesh, India - 535501</p>
                 </div>
                 <div class="text-left">
-                    <span class="text-[#EBE6C2] text-xs font-bold uppercase tracking-wider block mb-2">Contact</span>
+                    <span class="text-[#FF8A1C] text-xs font-bold uppercase tracking-wider block mb-2">Contact</span>
                     <div class="flex flex-col gap-2 text-sm">
                         <span><i class="fas fa-phone-alt text-[#FF8A1C] mr-2"></i> +91 87908 91290</span>
                         <span><i class="fas fa-phone-alt text-[#FF8A1C] mr-2"></i> +91 84660 13670</span>
@@ -452,10 +447,10 @@ This product is designed for regular dietary use and should be consumed as part 
                     <div class="mt-3 text-[11px] text-gray-400">Follow for updates & wellness insights</div>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-10 mt-10 pt-6 border-t border-[#C5BD61]/20">
-                <a href="#" onclick="openModal('privacyModal'); return false;" class="text-[#EBE6C2] hover:text-[#FF8A1C] transition uppercase tracking-wide legal-link">Privacy Policy</a>
-                <a href="#" onclick="openModal('termsModal'); return false;" class="text-[#EBE6C2] hover:text-[#FF8A1C] transition uppercase tracking-wide legal-link">Terms of Use</a>
-                <a href="#" onclick="openModal('disclaimerModal'); return false;" class="text-[#EBE6C2] hover:text-[#FF8A1C] transition uppercase tracking-wide legal-link">Disclaimer</a>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-10 mt-10 pt-6 border-t border-[#588157]/20">
+                <a href="#" onclick="openModal('privacyModal'); return false;" class="text-[#FF8A1C] hover:text-white transition uppercase tracking-wide legal-link">Privacy Policy</a>
+                <a href="#" onclick="openModal('termsModal'); return false;" class="text-[#FF8A1C] hover:text-white transition uppercase tracking-wide legal-link">Terms of Use</a>
+                <a href="#" onclick="openModal('disclaimerModal'); return false;" class="text-[#FF8A1C] hover:text-white transition uppercase tracking-wide legal-link">Disclaimer</a>
             </div>
         </div>
     </footer>
