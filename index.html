@@ -278,19 +278,542 @@
             justify-content: center;
         }
 
-        /* ── about ── */
-        .about {
+        /* ── executive summary ── */
+        .executive {
             padding: 80px 0;
             background: var(--white);
         }
 
-        .about-grid {
+        .executive-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: start;
         }
 
+        .executive-block {
+            background: var(--off-white);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+        .executive-block h3 {
+            font-size: 1.1rem;
+            color: var(--house-green);
+            margin-bottom: 8px;
+        }
+        .executive-block p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .executive-block p strong {
+            color: var(--text-dark);
+        }
+
+        .executive-highlight {
+            background: var(--light-green);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 98, 65, 0.1);
+        }
+        .executive-highlight h3 {
+            color: var(--house-green);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .executive-highlight p {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ── compare table ── */
+        .compare {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .compare-table-wrap {
+            overflow-x: auto;
+            margin-top: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            font-size: 0.95rem;
+            min-width: 500px;
+        }
+        .compare-table th {
+            background: var(--house-green);
+            color: var(--white);
+            padding: 18px 24px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+        .compare-table th:first-child {
+            border-radius: var(--radius) 0 0 0;
+        }
+        .compare-table th:last-child {
+            border-radius: 0 var(--radius) 0 0;
+        }
+        .compare-table td {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-table tr:hover td {
+            background: var(--off-white);
+        }
+        .compare-table .check {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .compare-table .cross {
+            color: #b91c1c;
+            font-weight: 700;
+        }
+
+        /* ── pathway ── */
+        .pathway {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .pathway-flow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .pathway-step {
+            background: var(--off-white);
+            padding: 14px 22px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--house-green);
+            border: 1px solid rgba(0, 98, 65, 0.08);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pathway-step .arrow {
+            color: var(--primary);
+            font-weight: 400;
+            margin: 0 4px;
+        }
+        .pathway-step:hover {
+            background: var(--tea-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        .pathway-step.highlight {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        .pathway-step.highlight .arrow {
+            color: var(--tea-green);
+        }
+
+        .pathway-note {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            padding: 20px 32px;
+            background: var(--light-green);
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 98, 65, 0.08);
+        }
+
+        /* ── SIRP ── */
+        .sirp {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .sirp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .sirp-card {
+            background: var(--white);
+            padding: 32px 32px 36px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 98, 65, 0.06);
+            box-shadow: var(--shadow);
+        }
+        .sirp-card h3 {
+            font-size: 1.2rem;
+            color: var(--house-green);
+            margin-bottom: 12px;
+        }
+        .sirp-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .sirp-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        .sirp-card ul li::before {
+            content: '▸';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .sirp-multiplier {
+            background: var(--house-green);
+            color: var(--white);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            border: none;
+            grid-column: 1/-1;
+        }
+        .sirp-multiplier h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .sirp-multiplier p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .sirp-multiplier p em {
+            color: var(--tea-green);
+            font-style: italic;
+        }
+        .sirp-multiplier .flow-code {
+            display: block;
+            margin-top: 12px;
+            font-family: 'Inter', monospace;
+            font-size: 1rem;
+            color: var(--tea-green);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 14px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── target / KPI ── */
+        .target {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .target-col {
+            background: var(--off-white);
+            padding: 32px 32px 36px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 98, 65, 0.06);
+            box-shadow: var(--shadow);
+        }
+        .target-col h3 {
+            font-size: 1.1rem;
+            color: var(--house-green);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--light-green);
+        }
+        .target-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .target-col ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        .target-col ul li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background: var(--tea-green);
+            color: var(--primary);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .target-col .big-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .target-col .big-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ── tech transfer ── */
+        .transfer {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .transfer-flow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 6px;
+            margin-top: 32px;
+        }
+
+        .transfer-step {
+            background: var(--white);
+            padding: 12px 20px;
+            border-radius: 40px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--house-green);
+            border: 1px solid rgba(0, 98, 65, 0.08);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .transfer-step .arrow {
+            color: var(--primary);
+            font-weight: 400;
+        }
+        .transfer-step.highlight {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        .transfer-step.highlight .arrow {
+            color: var(--tea-green);
+        }
+
+        .transfer-outcomes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+        .transfer-outcome {
+            background: var(--white);
+            padding: 20px 24px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 98, 65, 0.06);
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        .transfer-outcome:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--light-green);
+        }
+
+        /* ── roles ── */
+        .roles {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .roles-card {
+            background: var(--off-white);
+            padding: 28px 28px 32px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 98, 65, 0.06);
+            box-shadow: var(--shadow);
+        }
+        .roles-card h3 {
+            font-size: 1.1rem;
+            color: var(--house-green);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .roles-card h3 .badge {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 2px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+        }
+        .roles-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .roles-card ul li {
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+        .roles-card ul li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* ── core value ── */
+        .corevalue {
+            padding: 80px 0;
+            background: var(--light-green);
+            border-top: 1px solid rgba(0, 98, 65, 0.08);
+        }
+
+        .corevalue-box {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--white);
+            padding: 48px 56px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 98, 65, 0.06);
+        }
+        .corevalue-box blockquote {
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: var(--house-green);
+            font-style: italic;
+        }
+        .corevalue-box blockquote strong {
+            color: var(--primary);
+            font-style: normal;
+        }
+        .corevalue-box .model-line {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            padding: 16px 20px;
+            background: var(--off-white);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 98, 65, 0.06);
+            font-weight: 500;
+        }
+        .corevalue-box .model-line em {
+            color: var(--primary);
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        /* ── conclusion ── */
+        .conclusion {
+            padding: 80px 0;
+            background: var(--house-green);
+            color: var(--white);
+        }
+        .conclusion .section-title {
+            color: var(--white);
+        }
+        .conclusion .section-title .highlight {
+            color: var(--tea-green);
+        }
+        .conclusion .section-sub {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .conclusion-block {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            padding: 40px 48px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 32px;
+        }
+        .conclusion-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .conclusion-block p em {
+            font-style: italic;
+            color: var(--tea-green);
+            font-weight: 500;
+        }
+        .conclusion-block .transition-line {
+            display: block;
+            margin-top: 16px;
+            font-size: 1rem;
+            color: var(--tea-green);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 14px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── existing sections (keep styles) ── */
+        .about {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
         .about-card {
             background: var(--off-white);
             padding: 28px 32px;
@@ -307,7 +830,6 @@
             color: var(--text-light);
             font-size: 0.95rem;
         }
-
         .about-mission {
             background: var(--light-green);
             padding: 32px 36px;
@@ -325,7 +847,6 @@
             line-height: 1.7;
         }
 
-        /* ── imperative ── */
         .imperative {
             padding: 80px 0;
             background: var(--off-white);
@@ -333,14 +854,12 @@
             background-repeat: repeat;
             background-size: 120px 120px;
         }
-
         .imperative-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 28px;
             margin-top: 40px;
         }
-
         .imperative-card {
             background: var(--white);
             padding: 28px 24px;
@@ -377,7 +896,6 @@
             line-height: 1.6;
         }
 
-        /* ── vision ── */
         .vision {
             padding: 80px 0;
             background: var(--house-green);
@@ -392,7 +910,6 @@
         .vision .section-sub {
             color: rgba(255, 255, 255, 0.8);
         }
-
         .vision-block {
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(4px);
@@ -413,19 +930,16 @@
             font-weight: 500;
         }
 
-        /* ── lab architecture ── */
         .lab {
             padding: 80px 0;
             background: var(--white);
         }
-
         .lab-flow {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 40px;
         }
-
         .lab-step {
             background: var(--off-white);
             padding: 24px 22px;
@@ -461,7 +975,6 @@
             color: var(--text-light);
             line-height: 1.5;
         }
-
         .lab-step.highlight {
             background: var(--tea-green);
             border-color: var(--primary);
@@ -469,7 +982,6 @@
         .lab-step.highlight .step-num {
             background: var(--house-green);
         }
-
         .lab-note {
             margin-top: 32px;
             padding: 24px 32px;
@@ -481,19 +993,16 @@
             color: var(--text-dark);
         }
 
-        /* ── impact ── */
         .impact {
             padding: 80px 0;
             background: var(--off-white);
         }
-
         .impact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 40px;
         }
-
         .impact-col {
             background: var(--white);
             padding: 32px 32px 40px;
@@ -538,21 +1047,18 @@
             margin-top: 2px;
         }
 
-        /* ── showcase ── */
         .showcase {
             padding: 80px 0;
             background: var(--white);
-            background-image: radial-gradient(circle at 10% 20%, rgba(0,98,65,0.03) 0%, transparent 50%),
-                              radial-gradient(circle at 90% 80%, rgba(30,57,50,0.03) 0%, transparent 50%);
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 98, 65, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(30, 57, 50, 0.03) 0%, transparent 50%);
         }
-
         .showcase-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-top: 40px;
         }
-
         .showcase-card {
             background: var(--off-white);
             padding: 28px 24px;
@@ -586,20 +1092,17 @@
             line-height: 1.5;
         }
 
-        /* ── partnership ── */
         .partnership {
             padding: 80px 0;
             background: var(--light-green);
             border-top: 1px solid rgba(0, 98, 65, 0.08);
         }
-
         .partnership-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 40px;
         }
-
         .partner-col {
             background: var(--white);
             padding: 32px 32px 36px;
@@ -645,7 +1148,6 @@
             color: var(--primary);
             font-weight: 700;
         }
-
         .partner-outcomes {
             background: var(--house-green);
             color: var(--white);
@@ -673,7 +1175,6 @@
             padding: 40px 0 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
-
         .footer-top {
             display: flex;
             justify-content: flex-end;
@@ -682,7 +1183,6 @@
             gap: 16px;
             margin-bottom: 20px;
         }
-
         .footer-social {
             display: flex;
             gap: 14px;
@@ -699,17 +1199,29 @@
             font-size: 1.2rem;
             text-decoration: none;
             transition: var(--transition);
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .footer-social a:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
-        .footer-social a.linkedin { background: #0a66c2; border-color: #0a66c2; }
-        .footer-social a.instagram { background: #d62976; border-color: #d62976; }
-        .footer-social a.facebook { background: #1877f2; border-color: #1877f2; }
-        .footer-social a.whatsapp { background: #25d366; border-color: #25d366; }
+        .footer-social a.linkedin {
+            background: #0a66c2;
+            border-color: #0a66c2;
+        }
+        .footer-social a.instagram {
+            background: #d62976;
+            border-color: #d62976;
+        }
+        .footer-social a.facebook {
+            background: #1877f2;
+            border-color: #1877f2;
+        }
+        .footer-social a.whatsapp {
+            background: #25d366;
+            border-color: #25d366;
+        }
 
         .footer-contact {
             text-align: center;
@@ -731,7 +1243,7 @@
             color: rgba(255, 255, 255, 0.5);
             margin-top: 12px;
             padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
         .footer-terms a {
             color: var(--tea-green);
@@ -750,18 +1262,12 @@
             text-align: center;
             margin-top: 12px;
             padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.7);
         }
 
-        @media (max-width: 768px) {
-            .footer-top {
-                justify-content: center;
-            }
-        }
-
-        /* ── Modal Styles ── */
+        /* ── Modal ── */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -777,16 +1283,17 @@
             padding: 24px;
             animation: fadeIn 0.3s ease;
         }
-
         .modal-overlay.active {
             display: flex;
         }
-
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -797,7 +1304,6 @@
                 transform: translateY(0);
             }
         }
-
         .modal-content {
             background: var(--white);
             border-radius: var(--radius);
@@ -810,7 +1316,6 @@
             box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
             animation: slideUp 0.4s ease;
         }
-
         .modal-content::-webkit-scrollbar {
             width: 6px;
         }
@@ -822,7 +1327,6 @@
             background: var(--primary);
             border-radius: 10px;
         }
-
         .modal-close {
             position: sticky;
             top: 0;
@@ -847,18 +1351,15 @@
             background: var(--light-green);
             transform: rotate(90deg);
         }
-
         .modal-content h2 {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--house-green);
             margin-bottom: 8px;
         }
-
         .modal-content h2 .highlight {
             color: var(--primary);
         }
-
         .modal-content .modal-divider {
             width: 60px;
             height: 4px;
@@ -866,18 +1367,15 @@
             border-radius: 4px;
             margin-bottom: 20px;
         }
-
         .modal-content p {
             color: var(--text-dark);
             font-size: 0.95rem;
             line-height: 1.8;
             margin-bottom: 14px;
         }
-
         .modal-content p:last-child {
             margin-bottom: 0;
         }
-
         .modal-content .modal-date {
             font-size: 0.8rem;
             color: var(--text-light);
@@ -885,21 +1383,6 @@
             padding-top: 16px;
             border-top: 1px solid var(--light-green);
             font-style: italic;
-        }
-
-        @media (max-width: 640px) {
-            .modal-content {
-                padding: 28px 24px;
-                max-height: 90vh;
-            }
-            .modal-content h2 {
-                font-size: 1.4rem;
-            }
-            .modal-close {
-                width: 34px;
-                height: 34px;
-                font-size: 1.1rem;
-            }
         }
 
         /* ── responsive ── */
@@ -911,6 +1394,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .lab-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .transfer-outcomes {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -925,10 +1411,23 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            .executive-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
             .impact-grid {
                 grid-template-columns: 1fr;
             }
             .partnership-grid {
+                grid-template-columns: 1fr;
+            }
+            .sirp-grid {
+                grid-template-columns: 1fr;
+            }
+            .target-grid {
+                grid-template-columns: 1fr;
+            }
+            .roles-grid {
                 grid-template-columns: 1fr;
             }
             .nav-links {
@@ -944,7 +1443,7 @@
                 box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
                 transition: var(--transition);
                 align-items: flex-start;
-                border-left: 1px solid rgba(255,255,255,0.08);
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
             }
             .nav-links a {
                 color: var(--white);
@@ -977,6 +1476,9 @@
             .lab-flow {
                 grid-template-columns: 1fr;
             }
+            .transfer-outcomes {
+                grid-template-columns: 1fr;
+            }
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -990,12 +1492,51 @@
                 font-size: 1.7rem;
             }
             .partner-col,
-            .impact-col {
+            .impact-col,
+            .target-col,
+            .sirp-card,
+            .roles-card {
                 padding: 24px 20px;
             }
             .about-card,
-            .about-mission {
+            .about-mission,
+            .executive-block,
+            .executive-highlight {
                 padding: 24px 20px;
+            }
+            .corevalue-box {
+                padding: 32px 24px;
+            }
+            .corevalue-box blockquote {
+                font-size: 1.1rem;
+            }
+            .conclusion-block {
+                padding: 28px 20px;
+            }
+            .conclusion-block p {
+                font-size: 1rem;
+            }
+            .footer-top {
+                justify-content: center;
+            }
+            .modal-content {
+                padding: 28px 24px;
+            }
+            .modal-content h2 {
+                font-size: 1.4rem;
+            }
+            .modal-close {
+                width: 34px;
+                height: 34px;
+                font-size: 1.1rem;
+            }
+            .pathway-step {
+                font-size: 0.75rem;
+                padding: 10px 16px;
+            }
+            .transfer-step {
+                font-size: 0.72rem;
+                padding: 8px 14px;
             }
         }
 
@@ -1008,6 +1549,14 @@
             .hero-actions .btn-outline {
                 text-align: center;
                 width: 100%;
+            }
+            .compare-table {
+                font-size: 0.82rem;
+                min-width: 400px;
+            }
+            .compare-table th,
+            .compare-table td {
+                padding: 12px 16px;
             }
         }
     </style>
@@ -1023,12 +1572,12 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#imperative">Imperative</a></li>
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#lab">Lab</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#showcase">Projects</a></li>
+                <li><a href="#executive">About</a></li>
+                <li><a href="#compare">Model</a></li>
+                <li><a href="#sirp">SIRP</a></li>
+                <li><a href="#target">Targets</a></li>
+                <li><a href="#transfer">Transfer</a></li>
+                <li><a href="#roles">Roles</a></li>
                 <li><a href="#partnership" class="nav-cta">Partner</a></li>
             </ul>
 
@@ -1043,231 +1592,590 @@
         <div class="container hero-grid">
             <div class="hero-content">
                 <h1>
-                    Transform Your Campus into an<br />
-                    <span class="highlight">IIT- &amp; MIT-Style</span> Innovation Ecosystem
+                    Transform Your Campus into a<br />
+                    <span class="highlight">Next-Generation Innovation</span> Ecosystem
                 </h1>
                 <p>
-                    Building Innovation, Research, Prototyping, Patents, and Startups
-                    — empowering institutions and students to lead in the global
-                    innovation landscape.
+                    <strong>From Technology Exposure → Innovation Development → Technology Transfer → Institutional Capability</strong>
+                    <br />
+                    SIRA partners with institutions to build internal innovation capability — not just workshops.
                 </p>
                 <div class="hero-actions">
                     <a href="#partnership" class="btn-primary">Partner with SIRA</a>
-                    <a href="#about" class="btn-outline">Explore</a>
+                    <a href="#executive" class="btn-outline">Explore the Model</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── ABOUT ─── -->
-    <section class="about" id="about">
+    <!-- ─── EXECUTIVE SUMMARY ─── -->
+    <section class="executive" id="executive">
         <div class="container">
-            <span class="section-label">About SIRA</span>
-            <h2 class="section-title">Scientific Research &amp; <span class="highlight">Innovation Alliance</span></h2>
+            <span class="section-label">Executive Summary</span>
+            <h2 class="section-title">A Long-Term Institutional <span class="highlight">Partnership Model</span></h2>
 
-            <div class="about-grid">
+            <div class="executive-grid">
                 <div>
                     <p class="section-sub" style="margin-bottom:20px;">
-                        SIRA is an innovation ecosystem dedicated to scientific research,
-                        technology development, engineering innovation, prototype creation,
-                        patents, startup development, and industry-academia collaboration.
+                        SIRA — Scientific Research &amp; Innovation Alliance proposes a <strong>long-term Institutional Innovation &amp; Technology Transfer Partnership Model</strong> for educational institutions.
                     </p>
-                    <div class="about-card">
-                        <h3>Our Mission</h3>
+                    <div class="executive-block">
+                        <h3>Not a conventional workshop</h3>
                         <p>
-                            To bridge the gap between education, research, innovation, and
-                            industry through practical technology development — empowering
-                            institutions and students to lead in the global innovation
-                            landscape.
+                            SIRA is <strong>not</strong> a workshop, seminar, or certificate-training provider.
+                            The purpose is to help a partner college develop the <strong>internal ability</strong> to:
+                            understand emerging technologies, identify real problems, develop student and faculty
+                            innovations, build prototypes, test and improve them, document the work, and explore
+                            technology-transfer opportunities.
                         </p>
                     </div>
                 </div>
 
-                <div class="about-mission">
-                    <h3>Who We Are</h3>
+                <div class="executive-highlight">
+                    <h3>Central Objective</h3>
                     <p>
-                        We are a catalyst for change. SIRA brings together researchers,
-                        engineers, educators, and industry leaders to build a thriving
-                        innovation culture. Our ecosystem transforms campuses into
-                        launchpads for the next generation of inventors and entrepreneurs.
+                        Move the institution from:<br />
+                        <strong style="color:var(--primary);">Workshop Participation → Innovation Development → Institutional Capability</strong>
+                    </p>
+                    <p style="margin-top:12px;font-size:0.95rem;">
+                        The partner college remains the <strong>primary innovation environment</strong>.
+                        SIRA provides technical exposure, engineering demonstrations, research guidance,
+                        mentoring, development support, and technology-transfer guidance.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── IMPERATIVE ─── -->
-    <section class="imperative" id="imperative">
+    <!-- ─── WHAT MAKES SIRA DIFFERENT ─── -->
+    <section class="compare" id="compare">
         <div class="container">
-            <span class="section-label">The Imperative</span>
-            <h2 class="section-title">Why Innovation Ecosystems <span class="highlight">Matter</span></h2>
+            <span class="section-label">What Makes SIRA Different</span>
+            <h2 class="section-title">Conventional Workshop vs. <span class="highlight">SIRA Partnership</span></h2>
+
+            <div class="compare-table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Conventional Workshop Model</th>
+                            <th>SIRA Partnership Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Short-term program</td><td><span class="check">✓</span> Long-term institutional partnership</td></tr>
+                        <tr><td>Lecture and demonstration</td><td><span class="check">✓</span> Learning + development</td></tr>
+                        <tr><td>Participation</td><td><span class="check">✓</span> Problem solving</td></tr>
+                        <tr><td>Certificate-focused</td><td><span class="check">✓</span> Capability-focused</td></tr>
+                        <tr><td>External trainer</td><td><span class="check">✓</span> Institutional innovation partner</td></tr>
+                        <tr><td>Finished demonstrations</td><td><span class="check">✓</span> Student-developed projects</td></tr>
+                        <tr><td>Program ends</td><td><span class="check">✓</span> Continuous innovation cycle</td></tr>
+                        <tr><td>Students consume knowledge</td><td><span class="check">✓</span> Students develop and transfer knowledge</td></tr>
+                        <tr><td>External dependence</td><td><span class="check">✓</span> Internal institutional capability</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="margin-top:24px;text-align:center;font-weight:500;color:var(--text-dark);">
+                SIRA's role is to act as an <strong style="color:var(--primary);">Institutional Innovation &amp; Technology Transfer Partner</strong>, not merely as a workshop provider.
+            </p>
+        </div>
+    </section>
+
+    <!-- ─── THE SIRA INSTITUTIONAL MODEL (Pathway) ─── -->
+    <section class="pathway" id="pathway">
+        <div class="container">
+            <span class="section-label">The SIRA Institutional Model</span>
+            <h2 class="section-title">Continuous Innovation <span class="highlight">Pathway</span></h2>
             <p class="section-sub">
-                Engineering education is shifting from theory to practice. Industry
-                demands innovation-driven graduates. Research output elevates
-                institutional standing.
+                A structured journey from technology exposure to national recognition.
             </p>
 
-            <div class="imperative-grid">
-                <div class="imperative-card">
-                    <img class="icon-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=100&h=100&fit=crop&crop=center" alt="Education">
-                    <h4>Evolving Education</h4>
-                    <p>Engineering education is rapidly shifting from theory to practice-driven learning.</p>
-                </div>
-                <div class="imperative-card">
-                    <img class="icon-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=center" alt="Industry">
-                    <h4>Industry Demand</h4>
-                    <p>Industries require innovation-driven graduates equipped with real-world problem-solving skills.</p>
-                </div>
-                <div class="imperative-card">
-                    <img class="icon-img" src="https://images.unsplash.com/photo-1562774053-701939374585?w=100&h=100&fit=crop&crop=center" alt="Institution">
-                    <h4>Institutional Reputation</h4>
-                    <p>Research and innovation output directly elevate an institution's national and global standing.</p>
-                </div>
-                <div class="imperative-card">
-                    <img class="icon-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=100&h=100&fit=crop&crop=center" alt="Entrepreneurship">
-                    <h4>Employability &amp; Entrepreneurship</h4>
-                    <p>Practical learning improves student employability and fosters a culture of entrepreneurship.</p>
-                </div>
+            <div class="pathway-flow">
+                <span class="pathway-step">Emerging Technology Exposure</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Problem Identification</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Student &amp; Faculty Ideas</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Research &amp; Feasibility</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Engineering Development</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Prototype Development</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Testing &amp; Improvement</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step highlight">Student Innovation Resource Persons</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Internal Knowledge Transfer</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Institutional Innovation Showcase</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">External Representation</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step">Technology Transfer Opportunities</span>
+                <span class="pathway-step">↓ <span class="arrow">→</span></span>
+                <span class="pathway-step highlight">Wider/National Recognition</span>
+            </div>
+
+            <div class="pathway-note">
+                <strong>The objective is not simply to introduce technology to students, but to help the institution develop its own innovation capability.</strong>
             </div>
         </div>
     </section>
 
-    <!-- ─── VISION ─── -->
-    <section class="vision" id="vision">
+    <!-- ─── STUDENT & FACULTY INNOVATION DEVELOPMENT ─── -->
+    <section class="lab" id="development">
         <div class="container">
-            <span class="section-label" style="background:rgba(255,255,255,0.12);color:var(--tea-green);">Our Vision</span>
-            <h2 class="section-title">A Nationally Recognized <span class="highlight">Innovation Ecosystem</span></h2>
+            <span class="section-label">Innovation Development</span>
+            <h2 class="section-title">Student &amp; Faculty <span class="highlight">Project Development</span></h2>
             <p class="section-sub">
-                To create a nationally recognized innovation ecosystem where students
-                design, develop, test, and demonstrate real engineering technologies.
+                Students and faculty develop projects originating from ideas, research, institutional problems, industry needs, community challenges, and emerging technologies.
             </p>
 
-            <div class="vision-block">
-                <p>
-                    SIRA envisions every partner institution as a launchpad for the
-                    next generation of <em>researchers, inventors, and technology leaders</em>.
-                    We transform campuses into hubs of research, invention, and enterprise.
+            <div class="lab-flow" style="margin-top:24px;">
+                <div class="lab-step">
+                    <span class="step-num">01</span>
+                    <h4>Problem → Idea</h4>
+                    <p>Identify real-world problems and generate innovative solutions.</p>
+                </div>
+                <div class="lab-step highlight">
+                    <span class="step-num">02</span>
+                    <h4>Research → Design</h4>
+                    <p>Conduct feasibility studies and create engineering designs.</p>
+                </div>
+                <div class="lab-step">
+                    <span class="step-num">03</span>
+                    <h4>Prototype → Testing</h4>
+                    <p>Build functional prototypes and rigorously test performance.</p>
+                </div>
+                <div class="lab-step highlight">
+                    <span class="step-num">04</span>
+                    <h4>Improvement → Demonstration</h4>
+                    <p>Iterate based on testing and showcase to stakeholders.</p>
+                </div>
+                <div class="lab-step">
+                    <span class="step-num">05</span>
+                    <h4>Documentation</h4>
+                    <p>Record research, development, testing, and outcomes.</p>
+                </div>
+            </div>
+
+            <div class="lab-note">
+                <strong>Technology areas supported:</strong> AI, Robotics, Quantum Technology, Photonics, Sensors, Automation, Intelligent Systems, Scientific Computing, Biotechnology, Instrumentation and other emerging engineering technologies.
+            </div>
+
+            <div style="margin-top:24px;padding:20px 28px;background:var(--off-white);border-radius:var(--radius);border-left:4px solid var(--primary);">
+                <p style="font-size:0.95rem;color:var(--text-dark);">
+                    <strong>External Learning Pathway:</strong> External Learning → Useful Knowledge → Bring Knowledge Back → Adapt/Develop → College Project → Prototype → Institutional Innovation.
+                    <br />
+                    <em style="color:var(--text-light);font-size:0.9rem;">The partner institution's own project and innovation remain central.</em>
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- ─── LAB ARCHITECTURE ─── -->
-    <section class="lab" id="lab">
+    <!-- ─── SIRP MODEL ─── -->
+    <section class="sirp" id="sirp">
         <div class="container">
-            <span class="section-label">Lab Architecture</span>
-            <h2 class="section-title">Advanced Innovation <span class="highlight">Lab Model</span></h2>
+            <span class="section-label">SIRP Model</span>
+            <h2 class="section-title">Student Innovation Resource <span class="highlight">Persons</span></h2>
             <p class="section-sub">
-                SIRA's lab framework follows a structured innovation pipeline —
-                from concept to commercialization.
+                A key component of the SIRA model is developing selected students as Student Innovation Resource Persons (SIRPs).
             </p>
 
-            <div class="lab-flow">
-                <div class="lab-step">
-                    <span class="step-num">01</span>
-                    <h4>Design &amp; Simulation</h4>
-                    <p>Conceptualize and model engineering solutions with advanced simulation tools.</p>
+            <div class="sirp-grid">
+                <div class="sirp-card">
+                    <h3>SIRP Responsibilities</h3>
+                    <ul>
+                        <li>Support junior students and innovation teams</li>
+                        <li>Conduct approved internal knowledge-sharing sessions</li>
+                        <li>Support innovation clubs/cells</li>
+                        <li>Demonstrate technologies they genuinely understand</li>
+                        <li>Assist faculty mentors and prototype development</li>
+                        <li>Represent their institution in approved external activities</li>
+                        <li>Present their institution's projects and innovation work</li>
+                    </ul>
+                    <p style="margin-top:14px;font-size:0.85rem;color:var(--text-light);">
+                        <em>SIRP selection is not automatic for every student and involves institutional recommendation and SIRA evaluation.</em>
+                    </p>
                 </div>
-                <div class="lab-step highlight">
-                    <span class="step-num">02</span>
-                    <h4>Prototype Development</h4>
-                    <p>Build functional prototypes using state-of-the-art fabrication and assembly.</p>
-                </div>
-                <div class="lab-step">
-                    <span class="step-num">03</span>
-                    <h4>Testing &amp; Validation</h4>
-                    <p>Rigorously test and validate performance, safety, and reliability.</p>
-                </div>
-                <div class="lab-step">
-                    <span class="step-num">04</span>
-                    <h4>Technology Demonstration</h4>
-                    <p>Showcase innovations to stakeholders, industry, and the public.</p>
-                </div>
-                <div class="lab-step highlight">
-                    <span class="step-num">05</span>
-                    <h4>Research &amp; Patents</h4>
-                    <p>Publish findings and secure intellectual property protection.</p>
-                </div>
-                <div class="lab-step">
-                    <span class="step-num">06</span>
-                    <h4>Startup Incubation</h4>
-                    <p>Launch ventures from campus innovation projects with mentorship.</p>
-                </div>
-            </div>
 
-            <div class="lab-note">
-                Each stage is supported by expert mentorship, industry partnerships, and SIRA's research infrastructure.
+                <div class="sirp-card">
+                    <h3>Capability Multiplier</h3>
+                    <p style="font-size:0.95rem;color:var(--text-dark);margin-bottom:12px;">
+                        Instead of:
+                    </p>
+                    <div style="background:var(--off-white);padding:12px 16px;border-radius:8px;font-size:0.9rem;color:var(--text-light);border:1px solid rgba(0,98,65,0.06);">
+                        External Trainer → Students → Program Ends
+                    </div>
+                    <p style="font-size:0.95rem;color:var(--text-dark);margin:16px 0 12px;">
+                        The SIRA model develops:
+                    </p>
+                    <div style="background:var(--tea-green);padding:14px 18px;border-radius:8px;font-size:0.95rem;font-weight:600;color:var(--house-green);border:1px solid rgba(0,98,65,0.1);">
+                        SIRA → Students → SIRPs → Junior Students → New Teams → New Projects
+                    </div>
+                    <p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);">
+                        <strong>This allows knowledge and capability to remain inside the institution.</strong>
+                    </p>
+                </div>
+
+                <div class="sirp-multiplier">
+                    <h3>Institutional Capability Multiplier</h3>
+                    <p>
+                        The long-term objective is for the partner college to develop its own:
+                        <em>student innovation teams, SIRPs, faculty innovation mentors, innovation projects,
+                            prototypes, research documentation, technical demonstrations, innovation portfolio,
+                            internal knowledge-transfer system, and industry/community collaboration opportunities.</em>
+                    </p>
+                    <div class="flow-code">
+                        SIRA acts as a catalyst and technical partner, <strong style="color:var(--tea-green);">not a permanent substitute</strong> for institutional capability.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── IMPACT ─── -->
-    <section class="impact" id="impact">
+    <!-- ─── ANNUAL INNOVATION TARGET + KPI ─── -->
+    <section class="target" id="target">
         <div class="container">
-            <span class="section-label">Impact</span>
-            <h2 class="section-title">Benefits for Students &amp; <span class="highlight">Institutions</span></h2>
+            <span class="section-label">Annual Target &amp; KPIs</span>
+            <h2 class="section-title">Innovation <span class="highlight">Performance</span></h2>
+
+            <div class="target-grid">
+                <div class="target-col">
+                    <h3>Annual Innovation Target</h3>
+                    <div style="text-align:center;padding:16px 0;">
+                        <div class="big-number">3+</div>
+                        <div class="big-label">Major Innovation Projects per Academic Year</div>
+                    </div>
+                    <p style="font-size:0.9rem;color:var(--text-light);text-align:center;margin-top:4px;">
+                        This is a <strong>development target</strong>, not a guaranteed outcome.
+                        Achievement depends on student participation, faculty involvement, infrastructure,
+                        funding, project complexity, safety, available time and technical feasibility.
+                    </p>
+                    <p style="font-size:0.9rem;color:var(--text-light);text-align:center;margin-top:8px;">
+                        <em>Projects should progress beyond basic ideas toward meaningful development,
+                            such as prototype creation, testing, improvement and documentation.</em>
+                    </p>
+                </div>
+
+                <div class="target-col">
+                    <h3>Key Performance Indicators</h3>
+                    <ul>
+                        <li>Number of technology demonstrations</li>
+                        <li>Number of identified problems</li>
+                        <li>Number of innovation ideas</li>
+                        <li><strong>At least 3 major projects/year target</strong></li>
+                        <li>Number of prototypes developed</li>
+                        <li>Testing and improvement activities</li>
+                        <li>Number of active student innovation teams</li>
+                        <li>Number of SIRPs developed</li>
+                        <li>Number of faculty mentors</li>
+                        <li>Internal knowledge-sharing activities</li>
+                        <li>External institutional representations</li>
+                        <li>Research/project documentation</li>
+                        <li>Industry/community engagements</li>
+                        <li>Technology-transfer opportunities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── INSTITUTIONAL INNOVATION STRUCTURE ─── -->
+    <section class="vision" id="structure" style="background:var(--white);color:var(--text-dark);">
+        <div class="container">
+            <span class="section-label" style="background:var(--tea-green);color:var(--primary);">Ecosystem Structure</span>
+            <h2 class="section-title" style="color:var(--house-green);">Institutional Innovation <span class="highlight">Structure</span></h2>
+            <p class="section-sub" style="color:var(--text-light);">
+                A partner college may establish an institutional innovation ecosystem consisting of:
+            </p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:32px;">
+                <div style="background:var(--off-white);padding:24px 20px;border-radius:var(--radius);text-align:center;border:1px solid rgba(0,98,65,0.06);">
+                    <div style="font-size:2rem;margin-bottom:6px;">👨‍🏫</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:var(--house-green);">Faculty Innovation Mentors</h4>
+                </div>
+                <div style="background:var(--off-white);padding:24px 20px;border-radius:var(--radius);text-align:center;border:1px solid rgba(0,98,65,0.06);">
+                    <div style="font-size:2rem;margin-bottom:6px;">👥</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:var(--house-green);">Student Innovation Teams</h4>
+                </div>
+                <div style="background:var(--tea-green);padding:24px 20px;border-radius:var(--radius);text-align:center;border:1px solid rgba(0,98,65,0.1);">
+                    <div style="font-size:2rem;margin-bottom:6px;">⭐</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:var(--house-green);">Student Innovation Resource Persons</h4>
+                </div>
+                <div style="background:var(--off-white);padding:24px 20px;border-radius:var(--radius);text-align:center;border:1px solid rgba(0,98,65,0.06);">
+                    <div style="font-size:2rem;margin-bottom:6px;">🔬</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:var(--house-green);">Innovation/Prototype Development Space</h4>
+                </div>
+                <div style="background:var(--primary);color:var(--white);padding:24px 20px;border-radius:var(--radius);text-align:center;border:1px solid var(--primary);grid-column:1/-1;">
+                    <div style="font-size:2rem;margin-bottom:6px;">🤝</div>
+                    <h4 style="font-size:1rem;font-weight:700;color:var(--white);">SIRA Technical Support</h4>
+                </div>
+            </div>
+
+            <div style="margin-top:24px;padding:20px 28px;background:var(--light-green);border-radius:var(--radius);text-align:center;border:1px solid rgba(0,98,65,0.08);">
+                <p style="font-size:0.95rem;color:var(--text-dark);font-weight:500;">
+                    This structure creates a <strong style="color:var(--primary);">continuous campus innovation pipeline</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TECHNOLOGY TRANSFER PATHWAY ─── -->
+    <section class="transfer" id="transfer">
+        <div class="container">
+            <span class="section-label">Technology Transfer</span>
+            <h2 class="section-title">From Prototype to <span class="highlight">Commercialization</span></h2>
+            <p class="section-sub">
+                Successful projects may progress through the technology transfer pathway.
+            </p>
+
+            <div class="transfer-flow">
+                <span class="transfer-step">Prototype</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step">Testing</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step">Improvement</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step">Validation</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step">Documentation</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step highlight">IP Assessment</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step">Pilot/Industry Engagement</span>
+                <span class="transfer-step"><span class="arrow">→</span></span>
+                <span class="transfer-step highlight">Technology Transfer</span>
+            </div>
+
+            <div class="transfer-outcomes">
+                <div class="transfer-outcome">🏢 Institutional Deployment</div>
+                <div class="transfer-outcome">🤝 Industry Collaboration</div>
+                <div class="transfer-outcome">📜 Licensing</div>
+                <div class="transfer-outcome">🚀 Startup Development</div>
+                <div class="transfer-outcome">🔬 Research Collaboration</div>
+                <div class="transfer-outcome">🌍 Community Implementation</div>
+            </div>
+
+            <div style="margin-top:24px;padding:20px 28px;background:var(--white);border-radius:var(--radius);border:1px solid rgba(0,98,65,0.06);box-shadow:var(--shadow);">
+                <p style="font-size:0.9rem;color:var(--text-light);text-align:center;">
+                    <strong style="color:var(--text-dark);">Technology transfer or commercialization is an opportunity, not a guaranteed outcome for every project.</strong>
+                    <br />
+                    <em>Intellectual-property ownership, publication rights and commercialization responsibilities should be agreed upon by the relevant parties before development or transfer.</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── INSTITUTIONAL REPRESENTATION & RECOGNITION ─── -->
+    <section class="vision" id="recognition" style="background:var(--house-green);color:var(--white);">
+        <div class="container">
+            <span class="section-label" style="background:rgba(255,255,255,0.12);color:var(--tea-green);">Recognition</span>
+            <h2 class="section-title" style="color:var(--white);">Institutional Representation &amp; <span class="highlight" style="color:var(--tea-green);">Recognition</span></h2>
+            <p class="section-sub" style="color:rgba(255,255,255,0.8);">
+                An important outcome of the model is that the <strong style="color:var(--tea-green);">college can represent its own innovation</strong>.
+            </p>
+
+            <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(4px);padding:32px 40px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);margin-top:28px;">
+                <p style="font-size:1rem;color:rgba(255,255,255,0.9);line-height:1.8;">
+                    <strong style="color:var(--tea-green);">Pathway:</strong><br />
+                    College Develops Innovation → Student Contributes → Student Becomes SIRP → Student Understands &amp; Demonstrates the Work → Student Represents the College → College Gains Visibility
+                </p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:24px;">
+                <div style="background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size:1.2rem;">🏛️</span>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:4px;">Innovation Showcases</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size:1.2rem;">🔧</span>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:4px;">Technical Demonstrations</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size:1.2rem;">🏆</span>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:4px;">Competitions</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size:1.2rem;">🎤</span>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:4px;">Conferences</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size:1.2rem;">🏭</span>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:4px;">Industry Interactions</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,0.06);">
+                    <span style="font-size:1.2rem;">📄</span>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-top:4px;">Research Presentations</p>
+                </div>
+            </div>
+
+            <div style="margin-top:24px;padding:20px 28px;background:rgba(255,255,255,0.06);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);text-align:center;">
+                <p style="font-size:0.95rem;color:rgba(255,255,255,0.85);">
+                    Strong and documented innovation outcomes can create <strong style="color:var(--tea-green);">opportunities for wider and national-level recognition</strong> of the institution.
+                </p>
+                <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:8px;">
+                    SIRA does not guarantee any specific ranking, award or recognition; recognition depends on independently assessed institutional achievements and outcomes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── KEY OUTCOMES ─── -->
+    <section class="impact" id="outcomes">
+        <div class="container">
+            <span class="section-label">Key Outcomes</span>
+            <h2 class="section-title">Impact Across <span class="highlight">Students, Faculty &amp; Institution</span></h2>
 
             <div class="impact-grid">
                 <div class="impact-col">
                     <h3>For Students</h3>
                     <ul>
-                        <li>Hands-on engineering experience with real technologies</li>
-                        <li>Deep research exposure and publication opportunities</li>
-                        <li>Innovation and entrepreneurship skill development</li>
-                        <li>Industry readiness and superior career prospects</li>
-                        <li>Patent filing and startup launch support</li>
+                        <li>Emerging technology exposure</li>
+                        <li>Real project experience</li>
+                        <li>Research and engineering skills</li>
+                        <li>Prototype development experience</li>
+                        <li>Testing and improvement experience</li>
+                        <li>Technical communication</li>
+                        <li>Peer mentoring</li>
+                        <li>SIRP opportunities</li>
+                        <li>External representation experience</li>
                     </ul>
                 </div>
                 <div class="impact-col">
-                    <h3>For Institutions</h3>
+                    <h3>For Faculty</h3>
                     <ul>
-                        <li>Strong, visible innovation ecosystem on campus</li>
-                        <li>Improved academic reputation and national recognition</li>
-                        <li>Increased research output and higher patent volume</li>
-                        <li>Enhanced industry collaboration and partnerships</li>
-                        <li>A thriving startup culture that attracts top talent</li>
+                        <li>Innovation mentoring</li>
+                        <li>Project development</li>
+                        <li>Research opportunities</li>
+                        <li>Prototype supervision</li>
+                        <li>Technology evaluation</li>
+                        <li>Industry/community problem engagement</li>
+                    </ul>
+                </div>
+                <div class="impact-col" style="grid-column:1/-1;">
+                    <h3>For the Institution</h3>
+                    <ul style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 20px;">
+                        <li>Continuous innovation pipeline</li>
+                        <li>Student innovation teams</li>
+                        <li>SIRPs</li>
+                        <li>Faculty mentors</li>
+                        <li>Institutional prototypes</li>
+                        <li>Research and project documentation</li>
+                        <li>Innovation portfolio</li>
+                        <li>External visibility</li>
+                        <li>Technology-transfer opportunities</li>
+                        <li>Wider/national recognition opportunities</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── SHOWCASE ─── -->
-    <section class="showcase" id="showcase">
+    <!-- ─── ROLES & RESPONSIBILITIES ─── -->
+    <section class="roles" id="roles">
         <div class="container">
-            <span class="section-label">Showcase</span>
-            <h2 class="section-title">Example Innovation <span class="highlight">Projects</span></h2>
+            <span class="section-label">Roles &amp; Responsibilities</span>
+            <h2 class="section-title">Who Does <span class="highlight">What</span></h2>
 
-            <div class="showcase-grid">
-                <div class="showcase-card">
-                    <img class="emoji-img" src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=100&h=100&fit=crop&crop=center" alt="Rocket">
-                    <h4>Rocket Launch Simulation Platform</h4>
-                    <p>End-to-end aerospace simulation and propulsion research.</p>
+            <div class="roles-grid">
+                <div class="roles-card">
+                    <h3>SIRA <span class="badge">Technical Partner</span></h3>
+                    <ul>
+                        <li>Emerging technology exposure</li>
+                        <li>Engineering demonstrations</li>
+                        <li>Research and innovation guidance</li>
+                        <li>Technical mentoring</li>
+                        <li>Prototype-development support</li>
+                        <li>Evaluation and improvement guidance</li>
+                        <li>SIRP development support</li>
+                        <li>Technology-transfer guidance</li>
+                        <li>Advanced technical exposure when appropriate</li>
+                    </ul>
                 </div>
-                <div class="showcase-card">
-                    <img class="emoji-img" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=100&h=100&fit=crop&crop=center" alt="Quantum">
-                    <h4>Quantum Learning Laboratory</h4>
-                    <p>Hands-on quantum computing experiments and simulations.</p>
+
+                <div class="roles-card">
+                    <h3>Partner College <span class="badge">Host</span></h3>
+                    <ul>
+                        <li>Provide institutional environment and resources</li>
+                        <li>Identify faculty mentors</li>
+                        <li>Support student teams</li>
+                        <li>Provide appropriate infrastructure</li>
+                        <li>Facilitate projects and innovation activities</li>
+                        <li>Support internal knowledge transfer</li>
+                        <li>Approve external representation</li>
+                        <li>Maintain institutional innovation records</li>
+                    </ul>
                 </div>
-                <div class="showcase-card">
-                    <img class="emoji-img" src="https://uploads.onecompiler.io/44muwes4k/1783318114664/gect.jpg" alt="Autonomous">
-                    <h4>Autonomous Vehicle Concepts</h4>
-                    <p>Self-driving systems and intelligent mobility research.</p>
+
+                <div class="roles-card">
+                    <h3>Students <span class="badge">Innovators</span></h3>
+                    <ul>
+                        <li>Identify problems</li>
+                        <li>Develop ideas</li>
+                        <li>Conduct research</li>
+                        <li>Build and test projects</li>
+                        <li>Improve prototypes</li>
+                        <li>Document work</li>
+                        <li>Share knowledge</li>
+                        <li>Participate responsibly in innovation activities</li>
+                    </ul>
                 </div>
-                <div class="showcase-card">
-                    <img class="emoji-img" src="https://uploads.onecompiler.io/44muwes4k/1783318196703/submerine.jpg" alt="Amphibious">
-                    <h4>Amphibious Rescue Vehicle</h4>
-                    <p>Dual-environment disaster response engineering.</p>
+
+                <div class="roles-card">
+                    <h3>Faculty <span class="badge">Mentors</span></h3>
+                    <ul>
+                        <li>Mentor student teams</li>
+                        <li>Support research and experimentation</li>
+                        <li>Review technical development</li>
+                        <li>Coordinate institutional innovation activities</li>
+                    </ul>
                 </div>
-                <div class="showcase-card">
-                    <img class="emoji-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=100&h=100&fit=crop&crop=center" alt="Renewable">
-                    <h4>Smart Renewable Energy Systems</h4>
-                    <p>Integrated solar, wind, and energy storage solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SIRA'S CORE INSTITUTIONAL VALUE ─── -->
+    <section class="corevalue" id="corevalue">
+        <div class="container">
+            <div class="corevalue-box">
+                <span class="section-label" style="margin-bottom:8px;">Core Institutional Value</span>
+                <blockquote>
+                    "The goal is <strong>not</strong> to make a college dependent on external workshops.<br />
+                    The goal is to help the college <strong>develop its own people, projects, prototypes and innovation capability</strong>."
+                </blockquote>
+                <div class="model-line">
+                    <strong>Complete Model:</strong><br />
+                    Partner College → Develops Innovation → Develops Student Resource Persons → Builds Internal Capability → Represents Its Own Innovation → Technology Transfer → <em>Wider/National Recognition Opportunities</em>
                 </div>
-                <div class="showcase-card">
-                    <img class="emoji-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=100&h=100&fit=crop&crop=center" alt="Automation">
-                    <h4>Intelligent Automation Systems</h4>
-                    <p>Robotics, smart control, and industrial automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CONCLUSION ─── -->
+    <section class="conclusion" id="conclusion">
+        <div class="container">
+            <span class="section-label" style="background:rgba(255,255,255,0.12);color:var(--tea-green);">Conclusion</span>
+            <h2 class="section-title">From Workshop Consumer to <span class="highlight">Institutional Capability</span></h2>
+            <p class="section-sub">
+                SIRA proposes a transition that transforms institutions from passive consumers to active innovators.
+            </p>
+
+            <div class="conclusion-block">
+                <p>
+                    <strong style="color:var(--tea-green);">The Transition:</strong><br />
+                    <span style="color:var(--white);">Workshop Consumer → Technology Learner → Innovation Developer → Prototype Creator → Student Innovation Resource Person → Institutional Innovation Capability</span>
+                </p>
+                <p style="margin-top:16px;">
+                    The partner college remains at the center of the model. SIRA provides the technical ecosystem,
+                    exposure, guidance and support required to help students and faculty convert knowledge into
+                    <em style="color:var(--tea-green);">meaningful institutional innovation</em>.
+                </p>
+                <div class="transition-line">
+                    <strong style="color:var(--tea-green);">Long-Term Vision:</strong><br />
+                    Partner institutions become <strong style="color:var(--white);">self-strengthening innovation ecosystems</strong> capable of developing their own students, projects, prototypes and technologies, representing their own innovations externally, exploring technology transfer, and building opportunities for wider and national-level institutional recognition.
                 </div>
             </div>
         </div>
@@ -1336,7 +2244,6 @@
     <!-- ─── FOOTER ─── -->
     <footer>
         <div class="container">
-            <!-- Social icons - right aligned -->
             <div class="footer-top">
                 <div class="footer-social">
                     <a href="https://www.instagram.com/growwingroups?igsh=YTA0aHo3MHV6eW9m" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1346,13 +2253,11 @@
                 </div>
             </div>
 
-            <!-- Contact - two separate lines -->
             <div class="footer-contact">
-                <p>Contact: <a href="tel:+918317577316">+91 831 757 7316</a></p>
+                <p>Contact: <a href="tel:+918466013670">+91 8466013670</a></p>
                 <p>Email: <a href="mailto:growwingroups@gmail.com">growwingroups@gmail.com</a></p>
             </div>
 
-            <!-- Terms & Privacy -->
             <div class="footer-terms">
                 <a id="termsLink">Terms &amp; Conditions</a>
                 <span>|</span>
@@ -1382,7 +2287,7 @@
 
     <!-- ─── SCRIPT ─── -->
     <script>
-        // Mobile menu toggle
+        // ── Mobile menu toggle ──
         const toggle = document.getElementById('menuToggle');
         const nav = document.getElementById('navLinks');
 
@@ -1390,14 +2295,13 @@
             nav.classList.toggle('open');
         });
 
-        // Close menu on link click (mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('open');
             });
         });
 
-        // Smooth active nav highlight on scroll
+        // ── Smooth active nav highlight ──
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
 
@@ -1417,14 +2321,13 @@
             });
         });
 
-        // Close menu on resize to desktop
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900) {
                 nav.classList.remove('open');
             }
         });
 
-        // ─── MODAL LOGIC ───
+        // ── MODAL ──
         const modalOverlay = document.getElementById('modalOverlay');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -1432,7 +2335,6 @@
         const termsLink = document.getElementById('termsLink');
         const privacyLink = document.getElementById('privacyLink');
 
-        // Terms content
         const termsContent = `
             <p>By accessing and using the SIRA (Scientific Research &amp; Innovation Alliance) website, you agree to these Terms &amp; Conditions.</p>
             <p>All information, concepts, project descriptions, research ideas, graphics, logos, and other content published on this website are intended for informational purposes only and remain the intellectual property of SIRA unless otherwise stated. Any reproduction, copying, distribution, commercial use, or unauthorized representation of our content without prior written permission is prohibited.</p>
@@ -1441,7 +2343,6 @@
             <div class="modal-date">Last updated: January 2026</div>
         `;
 
-        // Privacy Policy content
         const privacyContent = `
             <p>SIRA (Scientific Research &amp; Innovation Alliance) respects your privacy and is committed to protecting any information you voluntarily provide through this website.</p>
             <p>We may collect details such as your name, email address, phone number, institution, and other information submitted through contact or partnership forms solely for communication, collaboration, research, innovation, and service-related purposes.</p>
@@ -1463,7 +2364,6 @@
             document.body.style.overflow = '';
         }
 
-        // Event listeners
         termsLink.addEventListener('click', (e) => {
             e.preventDefault();
             openModal('Terms &amp; <span class="highlight">Conditions</span>', termsContent);
@@ -1482,7 +2382,6 @@
             }
         });
 
-        // Close modal with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
                 closeModal();
